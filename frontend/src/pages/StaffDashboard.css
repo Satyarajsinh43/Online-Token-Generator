@@ -1,0 +1,60 @@
+.staff-dashboard {
+  padding: 60px 0;
+  min-height: 80vh;
+}
+
+.staff-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.staff-stats-grid h3 {
+  margin-top: 0;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.token-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin: 10px 0 0;
+}
+
+.highlight-card {
+  border-top-color: var(--accent-gold);
+  background-color: #fff9e6;
+}
+
+.highlight-card .token-number {
+  color: #d35400;
+}
+
+.control-panel {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.large-btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  min-width: 150px;
+}
+
+.gov-btn-danger {
+  background-color: #c0392b;
+  color: white;
+}
+
+.gov-btn-danger:hover {
+  background-color: #e74c3c;
+}

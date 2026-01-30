@@ -1,0 +1,150 @@
+.register-page {
+  background-color: #f3f4f6;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.register-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+.password-strength {
+  margin-top: 0.5rem;
+}
+
+.strength-bar {
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.strength-bar .fill {
+  height: 100%;
+  width: 0;
+  transition: all 0.3s ease;
+}
+
+.password-strength.weak .fill {
+  width: 33%;
+  background-color: #f44336;
+}
+
+.password-strength.medium .fill {
+  width: 66%;
+  background-color: #ff9800;
+}
+
+.password-strength.strong .fill {
+  width: 100%;
+  background-color: #4caf50;
+}
+
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.password-strength.weak .strength-label {
+  color: #f44336;
+}
+
+.password-strength.medium .strength-label {
+  color: #ff9800;
+}
+
+.password-strength.strong .strength-label {
+  color: #4caf50;
+}
+
+.input-with-prefix {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+.prefix {
+  padding: 0 0.75rem;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ccc;
+  color: #495057;
+  font-weight: 500;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-prefix input.gov-input {
+  border: none;
+  margin: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Inherits other styles from Login.css if imported or similar classes used 
+   But since we are not importing Login.css here, we should ensure consistency
+   Ideally these should be shared in index.css but for specific page tweaks: 
+*/
+
+.card-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card-header h2 {
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.card-header p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.card-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.card-footer a {
+  color: var(--secondary-blue);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 1rem;
+  }
+}

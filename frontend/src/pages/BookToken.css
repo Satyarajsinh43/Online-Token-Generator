@@ -1,0 +1,66 @@
+.book-token-page {
+  background-color: #f3f4f6;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.book-token-card {
+  max-width: 600px;
+  width: 100%;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-header h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-header p {
+  color: #666;
+}
+
+/* Form Layouts */
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.half-width {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-token-page {
+    padding: 1rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.75rem;
+  }
+}
