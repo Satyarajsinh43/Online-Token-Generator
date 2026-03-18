@@ -19,6 +19,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--light-gray);
   color: var(--text-dark);
+  overflow-x: hidden; /* Prevent horizontal scroll globally */
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {

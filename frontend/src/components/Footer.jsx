@@ -1,5 +1,6 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -12,9 +13,10 @@ const Footer = () => {
                     <div>
                         <h4>{t.quickLinks}</h4>
                         <ul>
-                            <li>{t.disclaimer}</li>
-                            <li>{t.privacy}</li>
-                            <li>{t.accessibility}</li>
+                            <li><Link to="/quick-links">Quick Links</Link></li>
+                            <li><Link to="/disclaimer">{t.disclaimer}</Link></li>
+                            <li><Link to="/privacy-policy">{t.privacy}</Link></li>
+                            <li><Link to="/accessibility-statement">{t.accessibility}</Link></li>
                         </ul>
                     </div>
                     <div>

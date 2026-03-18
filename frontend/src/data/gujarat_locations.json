@@ -1,0 +1,1283 @@
+[
+  {
+    "name": "Ahmedabad",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Ahmedabad (GJ-01)", "RTO Ahmedabad East (GJ-27)", "Civil Hospital"],
+    "talukas": [
+      {
+        "name": "Ahmedabad City",
+        "offices": ["Mamlatdar Office (City)", "Taluka Panchayat", "RTO Ahmedabad (GJ-01)", "RTO Ahmedabad East (GJ-27)"],
+        "villages": ["Ghatlodiya", "Vejalpur", "Naranpura", "Sabarmati"]
+      },
+      {
+        "name": "Daskroi",
+        "offices": ["Mamlatdar Office (Daskroi)", "Taluka Panchayat"],
+        "villages": ["Aslali", "Bareja", "Geratnagar", "Hathijan"]
+      },
+      {
+        "name": "Sanand",
+        "offices": ["Mamlatdar Office (Sanand)", "Taluka Panchayat"],
+        "villages": ["Sanand", "Charodi", "Chekhla", "Rampura"]
+      },
+      {
+        "name": "Bavla",
+        "offices": ["Mamlatdar Office (Bavla)", "Taluka Panchayat", "ARTO Bavla (GJ-38)"],
+        "villages": ["Bavla", "Kerala", "Adroda", "Gangad"]
+      },
+      {
+        "name": "Dholka",
+        "offices": ["Mamlatdar Office (Dholka)", "Taluka Panchayat"],
+        "villages": ["Dholka", "Ingoli", "Koth", "Badarkha"]
+      },
+      {
+        "name": "Viramgam",
+        "offices": ["Mamlatdar Office", "Viramgam)", "Taluka Panchayat"],
+        "villages": ["Viramgam", "Hansalpur", "Vani", "Sokli"]
+      },
+       {
+        "name": "Mandal",
+        "offices": ["Mamlatdar Office (Mandal)", "Taluka Panchayat"],
+        "villages": ["Mandal", "Endla", "Vinchhan", "Dadhana"]
+      },
+      {
+        "name": "Detroj-Rampura",
+        "offices": ["Mamlatdar Office (Detroj)", "Taluka Panchayat"],
+        "villages": ["Detroj", "Rampura", "Kanakpura", "Bhatariya"]
+      }
+
+    ]
+  },
+  {
+    "name": "Amreli",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Amreli (GJ-14)", "Amreli Civil Hospital"],
+    "talukas": [
+      {
+        "name": "Amreli",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Amreli (GJ-14)"],
+        "villages": ["Amreli", "Fatepur", "Gavadka", "Ishvariya"]
+      },
+      {
+        "name": "Babra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Babra", "Kariyana", "Khakhariya", "Nilavala"]
+      },
+      {
+        "name": "Dhari",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dhari", "Chalala", "Dalkhaniya", "Gigasan"]
+      },
+       {
+        "name": "Lathi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Lathi", "Damnagar", "Dhudhala", "Harsurpur"]
+      },
+      {
+        "name": "Lilia",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Lilia", "Bhoringda", "Kalyanpar", "Sajantimba"]
+      },
+      {
+        "name": "Rajula",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Rajula", "Bherai", "Dungar", "Kadiyali"]
+      },
+      {
+        "name": "Savarkundla",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Savarkundla", "Ghadakda", "Jesair", "Vanda"]
+      }
+    ]
+  },
+  {
+    "name": "Anand",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Anand (GJ-23)"],
+    "talukas": [
+      {
+        "name": "Anand",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Anand (GJ-23)"],
+        "villages": ["Anand", "Bakrol", "Karamsad", "Mogri"]
+      },
+      {
+        "name": "Anklav",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Anklav", "Asarva", "Bhetasi", "Joshikuva"]
+      },
+      {
+        "name": "Borsad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Borsad", "Alarsa", "Davol", "Vasad"]
+      },
+      {
+        "name": "Khambhat",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Khambhat", "Kalu", "Nagra", "Vainaj"]
+      },
+      {
+        "name": "Petlad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Petlad", "Dharmaj", "Israma", "Virol"]
+      },
+      {
+        "name": "Sojitra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sojitra", "Dabhou", "Piplav", "Runaj"]
+      },
+      {
+        "name": "Tarapur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Tarapur", "Dugari", "Jichka", "Moraj"]
+      },
+      {
+        "name": "Umreth",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Umreth", "Bhatpura", "Dagjipura", "Pansora"]
+      }
+    ]
+  },
+  {
+    "name": "Aravalli",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Aravalli (Modasa) (GJ-31)"],
+    "talukas": [
+      {
+        "name": "Modasa",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Aravalli (Modasa) (GJ-31)"],
+        "villages": ["Modasa", "Bajkot", "Hathipura", "Raigadh"]
+      },
+      {
+        "name": "Bayad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Bayad", "Ambaliara", "Choila", "Sathamba"]
+      },
+      {
+        "name": "Dhansura",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dhansura", "Akrund", "Shinavad", "Vadagam"]
+      },
+      {
+        "name": "Bhiloda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Bhiloda", "Bhavanpur", "Kuski", "Vankaneer"]
+      },
+      {
+        "name": "Malpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Malpur", "Aniyor", "Jitpur", "Ubharan"]
+      },
+      {
+        "name": "Meghraj",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Meghraj", "Bela", "Isari", "Kheradi"]
+      }
+    ]
+  },
+  {
+    "name": "Banaskantha",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Banaskantha (Palanpur) (GJ-08)"],
+    "talukas": [
+      {
+        "name": "Palanpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Banaskantha (Palanpur) (GJ-08)"],
+        "villages": ["Palanpur", "Chandisar", "Gadh", "Lalawada"]
+      },
+      {
+        "name": "Deesa",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Deesa", "Bhildi", "Juna Deesa", "Lorwada"]
+      },
+      {
+        "name": "Dhanera",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dhanera", "Alwada", "Jadi", "Thawar"]
+      },
+      {
+        "name": "Danta",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Danta", "Ambaji", "Hadad", "Koteshwar"]
+      },
+      {
+        "name": "Vadgam",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vadgam", "Chhapi", "Majadar", "Mumanvas"]
+      },
+      {
+         "name": "Tharad",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Tharad", "Bhorol", "Dhudhva", "Vami"]
+      },
+      {
+         "name": "Vav",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Vav", "Asaravas", "Dhima", "Tadav"]
+      },
+       {
+         "name": "Kankrej",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Shihori", "Thara", "Kamboi", "Un"]
+      },
+      {
+         "name": "Deodar",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Deodar", "Bhabhar", "Ratanpura", "Vakha"]
+      }
+    ]
+  },
+  {
+    "name": "Bharuch",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Bharuch (GJ-16)"],
+    "talukas": [
+      {
+        "name": "Bharuch",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Bharuch (GJ-16)"],
+        "villages": ["Bharuch", "Dahej", "Nabipur", "Tankaria"]
+      },
+      {
+        "name": "Ankleshwar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Ankleshwar", "Gadkhol", "Kosamdi", "Panoli"]
+      },
+      {
+        "name": "Jambusar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jambusar", "Kavi", "Tankari", "Vedach"]
+      },
+      {
+        "name": "Vagra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vagra", "Dahej", "Pakhajan", "Rahiyad"]
+      },
+      {
+        "name": "Jhagadia",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jhagadia", "Amod", "Gumanand", "Rajpardi"]
+      }
+    ]
+  },
+  {
+    "name": "Bhavnagar",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Bhavnagar (GJ-04)"],
+    "talukas": [
+      {
+        "name": "Bhavnagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Bhavnagar (GJ-04)"],
+        "villages": ["Bhavnagar", "Budhel", "Koliyak", "Vartej"]
+      },
+      {
+        "name": "Mahuva",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mahuva", "Bagdana", "Katpar", "Tared"]
+      },
+      {
+        "name": "Palitana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Palitana", "Adpur", "Gheti", "Songadh"]
+      },
+      {
+        "name": "Sihor",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sihor", "Ambla", "Sanosara", "Songadh"]
+      },
+      {
+        "name": "Gariadhar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Gariadhar", "Mandvi", "Parvdi", "Velavadar"]
+      },
+       {
+        "name": "Talaja",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Talaja", "Alang", "Gopnath", "Sartanpar"]
+      },
+      {
+        "name": "Vallabhipur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vallabhipur", "Chamar", "Navagam", "Patan"]
+      }
+
+    ]
+  },
+  {
+    "name": "Botad",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Botad (GJ-33)"],
+    "talukas": [
+      {
+        "name": "Botad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Botad (GJ-33)"],
+        "villages": ["Botad", "Lathidad", "Paliyad", "Turkha"]
+      },
+      {
+        "name": "Gadhada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Gadhada", "Dhasa", "Ningala", "Umrala"]
+      },
+      {
+        "name": "Barvala",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Barvala", "Polarpur", "Raigadh", "Salangpur"]
+      },
+      {
+        "name": "Ranpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Ranpur", "Alau", "Khas", "Kinara"]
+      }
+    ]
+  },
+  {
+    "name": "Chhota Udepur",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Chhota Udepur (GJ-34)"],
+    "talukas": [
+       {
+        "name": "Chhota Udepur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Chhota Udepur (GJ-34)"],
+        "villages": ["Chhota Udepur", "Kawant", "Rangpur", "Tejgadh"]
+      },
+      {
+        "name": "Pavi Jetpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jetpur", "Bodeli", "Jabugam", "Suskal"]
+      },
+      {
+        "name": "Sankheda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sankheda", "Bahadarpur", "Bhatpur", "Gundicha"]
+      }
+    ]
+  },
+  {
+    "name": "Dahod",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Dahod (GJ-20)"],
+    "talukas": [
+      {
+        "name": "Dahod",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Dahod (GJ-20)"],
+        "villages": ["Dahod", "Garbada", "Jekot", "Katwara"]
+      },
+      {
+        "name": "Jhalod",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jhalod", "Limdi", "Mhudi", "Sukhsar"]
+      },
+      {
+        "name": "Devgadh Baria",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Devgadh Baria", "Piplod", "Sagtala", "Udhal Mahuda"]
+      },
+       {
+        "name": "Limkheda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Limkheda", "Dudhiya", "Jada", "Palli"]
+      }
+    ]
+  },
+  {
+    "name": "Dang",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Dang (Ahwa) (GJ-30)"],
+    "talukas": [
+      {
+        "name": "Ahwa",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Dang (Ahwa) (GJ-30)"],
+        "villages": ["Ahwa", "Galkund", "Pimpri", "Shamgahan"]
+      },
+      {
+        "name": "Waghai",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Waghai", "Bhavandagad", "Dungarda", "Sakpat"]
+      },
+       {
+        "name": "Subir",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Subir", "Gadhvi", "Mahal", "Singana"]
+      }
+    ]
+  },
+   {
+    "name": "Devbhoomi Dwarka",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Devbhoomi Dwarka (GJ-37)"],
+    "talukas": [
+      {
+        "name": "Khambhalia",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Devbhoomi Dwarka (GJ-37)"],
+        "villages": ["Khambhalia", "Bhanvad", "Salaya", "Vadinar"]
+      },
+      {
+        "name": "Dwarka",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dwarka", "Bet Dwarka", "Mithapur", "Okha"]
+      },
+      {
+        "name": "Bhanvad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Bhanvad", "Jampar", "Pachhatardi", "Sajdiyali"]
+      },
+      {
+        "name": "Kalyanpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kalyanpur", "Bhatiya", "Gurgadh", "Nandana"]
+      }
+    ]
+  },
+  {
+    "name": "Gandhinagar",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Gandhinagar (GJ-18)", "Sachivalaya"],
+    "talukas": [
+      {
+        "name": "Gandhinagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Gandhinagar (GJ-18)"],
+        "villages": ["Gandhinagar", "Adalaj", "Chiloda", "Pethapur"]
+      },
+       {
+        "name": "Kalol",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kalol", "Chhatral", "Nardipur", "Santej"]
+      },
+      {
+        "name": "Dehgam",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dehgam", "Bahiyal", "Jaliya Math", "Rakhiyal"]
+      },
+      {
+        "name": "Mansa",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mansa", "Ajol", "Itadara", "Lodra"]
+      }
+    ]
+  },
+  {
+    "name": "Gir Somnath",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Gir Somnath (Veraval) (GJ-32)"],
+    "talukas": [
+      {
+        "name": "Veraval",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Gir Somnath (Veraval) (GJ-32)"],
+        "villages": ["Veraval", "Adri", "Dari", "Prabhas Patan"]
+      },
+      {
+        "name": "Talala",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Talala", "Ankolvadi", "Bhojde", "Sasan"]
+      },
+      {
+        "name": "Sutrapada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sutrapada", "Dhamlej", "Prasnavada", "Rangpur"]
+      },
+      {
+        "name": "Kodinar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kodinar", "Chhara", "Dolasa", "Velan"]
+      },
+      {
+        "name": "Una",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Una", "Delvada", "Nava Bandar", "Simar"]
+      },
+      {
+        "name": "Gir Gadhada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Gir Gadhada", "Babariya", "Dhokadva", "Jaragli"]
+      }
+    ]
+  },
+  {
+    "name": "Jamnagar",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Jamnagar (GJ-10)"],
+    "talukas": [
+      {
+        "name": "Jamnagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Jamnagar (GJ-10)"],
+        "villages": ["Jamnagar", "Aliya", "Bedi", "Sikka"]
+      },
+      {
+        "name": "Dhrol",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dhrol", "Jayva", "Latipur", "Laiyala"]
+      },
+      {
+        "name": "Jamjodhpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jamjodhpur", "Gingni", "Satapar", "Vans jaliya"]
+      },
+      {
+        "name": "Jodiya",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jodiya", "Balambha", "Dhufa", "Hadiyana"]
+      },
+      {
+        "name": "Kalavad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kalavad", "Bangavadi", "Kharedi", "Nikava"]
+      },
+      {
+        "name": "Lalpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Lalpur", "Memana", "Modpar", "Padana"]
+      }
+    ]
+  },
+  {
+    "name": "Junagadh",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Junagadh (GJ-11)"],
+    "talukas": [
+      {
+        "name": "Junagadh City",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Junagadh (GJ-11)"],
+        "villages": ["Junagadh", "Bhavnath", "Dungarpur", "Vadal"]
+      },
+       {
+        "name": "Junagadh Rural",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Bilkha", "Dungarpur", "Prabhas Patan", "Tivadi"]
+      },
+      {
+        "name": "Keshod",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Keshod", "Agatrai", "Kevadra", "Meswan"]
+      },
+      {
+        "name": "Mangrol",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mangrol", "Loej", "Maktupur", "Shil"]
+      },
+      {
+        "name": "Manavadar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Manavadar", "Bantwa", "Mitadi", "Sardargadh"]
+      },
+      {
+        "name": "Mendarda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mendarda", "Ambaliyara", "Datrana", "Rajavad"]
+      },
+      {
+        "name": "Vanthali",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vanthali", "Kajaliya", "Lushala", "Shapur"]
+      },
+      {
+        "name": "Visavadar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Visavadar", "Bhalgam", "Kalsari", "Prempara"]
+      },
+      {
+        "name": "Maliya Hatina",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Maliya Hatina", "Bhanduri", "Chuladi", "Khora"]
+      },
+      {
+        "name": "Bhesan",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Bhesan", "Chuda", "Parab Vavdi", "Ranpur"]
+      }
+    ]
+  },
+  {
+    "name": "Kutch",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Kutch (Bhuj) (GJ-12)"],
+    "talukas": [
+      {
+        "name": "Bhuj",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Kutch (Bhuj) (GJ-12)"],
+        "villages": ["Bhuj", "Khavda", "Kukhma", "Madhapar"]
+      },
+      {
+        "name": "Gandhidham",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "ARTO Gandhidham (GJ-12)"],
+        "villages": ["Gandhidham", "Antarjal", "Padana", "Shinay"]
+      },
+      {
+        "name": "Mandvi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mandvi", "Bidada", "Gadhshisha", "Koday"]
+      },
+      {
+        "name": "Mundra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mundra", "Baroi", "Pratappar", "Zarana"]
+      },
+      {
+        "name": "Anjar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Anjar", "Bhimasar", "Dudhai", "Ratnal"]
+      },
+      {
+        "name": "Bhachau",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Bhachau", "Adhoi", "Chobari", "Samakhiali"]
+      },
+      {
+        "name": "Rapar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Rapar", "Adesar", "Balasar", "Fatehgadh"]
+      },
+      {
+        "name": "Nakhatrana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Nakhatrana", "Deshalpar", "Mathal", "Vithon"]
+      },
+      {
+        "name": "Abdasa",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Naliya", "Jakhau", "Kothara", "Tera"]
+      },
+      {
+        "name": "Lakhpat",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Lakhpat", "Dayapar", "Ghuvai", "Narayan Sarovar"]
+      }
+    ]
+  },
+  {
+    "name": "Kheda",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Kheda (Nadiad) (GJ-07)"],
+    "talukas": [
+       {
+        "name": "Nadiad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Kheda (Nadiad) (GJ-07)"],
+        "villages": ["Nadiad", "Chaklasi", "Piplag", "Vaso"]
+      },
+      {
+        "name": "Kheda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kheda", "Hariyala", "Nayka", "Vasna"]
+      },
+      {
+        "name": "Matar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Matar", "Limbasi", "Radhu", "Traj"]
+      },
+      {
+        "name": "Mehmedabad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mehmedabad", "Modaj", "Nenpur", "Sinha"]
+      },
+      {
+        "name": "Mahudha",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mahudha", "Alina", "Bherai", "Nizampura"]
+      },
+      {
+        "name": "Kathlal",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kathlal", "Apruji", "Chhipdi", "Lasundra"]
+      },
+      {
+        "name": "Kapadvanj",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kapadvanj", "Antroli", "Nirmali", "Torna"]
+      },
+      {
+        "name": "Thasra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Thasra", "Dakor", "Galteshwar", "Sui"]
+      },
+      {
+        "name": "Vaso",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vaso", "Alindra", "Pij", "Ralej"]
+      },
+      {
+         "name": "Galteshwar",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Galteshwar", "Anghadi", "Sarnal", "Timba"]
+      }
+    ]
+  },
+  {
+    "name": "Mahisagar",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Mahisagar (Lunawada) (GJ-35)"],
+    "talukas": [
+      {
+        "name": "Lunawada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Mahisagar (Lunawada) (GJ-35)"],
+        "villages": ["Lunawada", "Kothamba", "Limadiya", "Vardhari"]
+      },
+      {
+        "name": "Santrampur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Santrampur", "Batakwada", "Gothib", "Kadana"]
+      },
+      {
+        "name": "Balasinor",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Balasinor", "Jetholi", "Othvad", "Pandva"]
+      },
+      {
+        "name": "Khanpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Khanpur", "Bakor", "Limadiya", "Pandarwada"]
+      },
+      {
+        "name": "Virpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Virpur", "Debhari", "Kheroli", "Salia"]
+      },
+      {
+        "name": "Kadana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kadana", "Diwda", "Malu", "Velanwada"]
+      }
+    ]
+  },
+  {
+    "name": "Mehsana",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Mehsana (GJ-02)"],
+    "talukas": [
+      {
+        "name": "Mehsana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Mehsana (GJ-02)"],
+        "villages": ["Mehsana", "Ambaliyasan", "Gojaaria", "Langhnaj"]
+      },
+      {
+        "name": "Visnagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Visnagar", "Kansa", "Valam", "Umgon"]
+      },
+      {
+        "name": "Kadi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kadi", "Bavlu", "Nandasan", "Thol"]
+      },
+      {
+        "name": "Becharaji",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Becharaji", "Adesar", "Modhera", "Ranela"]
+      },
+      {
+        "name": "Kheralu",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kheralu", "Dabhoda", "Lunva", "Mandropur"]
+      },
+      {
+        "name": "Satlasana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Satlasana", "Bhalusana", "Sudasana", "Vav"]
+      },
+      {
+        "name": "Vadnagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vadnagar", "Karbatan", "Sipor", "Valasan"]
+      },
+       {
+        "name": "Unjha",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Unjha", "Aithor", "Bramanwada", "Dasaj"]
+      },
+      {
+        "name": "Vijapur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vijapur", "Kukarvada", "Ladol", "Pilvai"]
+      }
+    ]
+  },
+    {
+    "name": "Morbi",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Morbi (GJ-36)"],
+    "talukas": [
+      {
+        "name": "Morbi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Morbi (GJ-36)"],
+        "villages": ["Morbi", "Bagathala", "Lalpar", "Mahendranagar"]
+      },
+      {
+        "name": "Wankaner",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Wankaner", "Chandrapur", "Jalsika", "Sindhavadar"]
+      },
+      {
+        "name": "Tankara",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Tankara", "Dhroliya", "Lajai", "Otala"]
+      },
+      {
+        "name": "Maliya Miyana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Maliya", "Khakhrechi", "Mota Dahisara", "Vavaniya"]
+      },
+      {
+        "name": "Halvad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Halvad", "Charadva", "Mayurnagar", "Tikaras"]
+      }
+    ]
+  },
+  {
+    "name": "Narmada",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Narmada (Rajpipla) (GJ-22)"],
+    "talukas": [
+      {
+        "name": "Rajpipla",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Narmada (Rajpipla) (GJ-22)"],
+        "villages": ["Rajpipla", "Amletha", "Garudeshwar", "Vavdi"]
+      },
+      {
+        "name": "Tilakwada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Tilakwada", "Devaliya", "Gametha", "Vansla"]
+      },
+      {
+        "name": "Dediapada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dediapada", "Khabji", "Mosda", "Samot"]
+      },
+      {
+        "name": "Sagbara",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sagbara", "Chopadvav", "Pat", "Selamba"]
+      }
+    ]
+  },
+  {
+    "name": "Navsari",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Navsari (GJ-21)"],
+    "talukas": [
+      {
+        "name": "Navsari",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Navsari (GJ-21)"],
+        "villages": ["Navsari", "Jamalpore", "Kabilpore", "Vijalpore"]
+      },
+      {
+        "name": "Jalalpore",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jalalpore", "Eru", "Maroli", "Vesi"]
+      },
+      {
+        "name": "Gandevi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Gandevi", "Amalsad", "Bilimora", "Gadat"]
+      },
+      {
+        "name": "Chikhli",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Chikhli", "Alipore", "Khergam", "Rankuva"]
+      },
+      {
+        "name": "Vansda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vansda", "Dharampur", "Kansariya", "Unai"]
+      }
+    ]
+  },
+   {
+    "name": "Panchmahal",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Panchmahal (Godhra) (GJ-17)"],
+    "talukas": [
+      {
+        "name": "Godhra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Panchmahal (Godhra) (GJ-17)"],
+        "villages": ["Godhra", "Chavli", "Popatpura", "Vavadi"]
+      },
+      {
+        "name": "Halol",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Halol", "Kanjari", "Pavagadh", "Tarsang"]
+      },
+      {
+        "name": "Kalol",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kalol", "Delol", "Derol", "Vejalpur"]
+      },
+      {
+        "name": "Jambughoda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jambughoda", "Dandiyapura", "Khandivav", "Nathpari"]
+      },
+      {
+        "name": "Shahera",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Shahera", "Aniyad", "Bhurakhal", "Nada"]
+      },
+      {
+         "name": "Morva Hadaf",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Morva", "Dangariya", "Metral", "Vangarva"]
+      },
+      {
+         "name": "Ghoghamba",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Ghoghamba", "Chelavada", "Gamirpura", "Rajgad"]
+      }
+    ]
+  },
+  {
+    "name": "Patan",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Patan (GJ-24)"],
+    "talukas": [
+      {
+        "name": "Patan",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Patan (GJ-24)"],
+        "villages": ["Patan", "Balishana", "Kungher", "Ranuj"]
+      },
+       {
+        "name": "Sidhpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sidhpur", "Kakoshi", "Kalyana", "Methan"]
+      },
+      {
+        "name": "Chanasma",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Chanasma", "Becharaji", "Dhinoj", "Lanva"]
+      },
+      {
+        "name": "Harij",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Harij", "Adia", "Manka", "Sankheshwar"]
+      },
+      {
+        "name": "Sami",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sami", "Baspa", "Mujpur", "Varana"]
+      },
+      {
+        "name": "Radhanpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Radhanpur", "Kamalpur", "Santalpur", "Shergadh"]
+      },
+      {
+         "name": "Santalpur",
+         "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+         "villages": ["Santalpur", "Babara", "Gadsai", "Varahi"]
+      }
+    ]
+  },
+  {
+    "name": "Porbandar",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Porbandar (GJ-25)"],
+    "talukas": [
+      {
+        "name": "Porbandar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Porbandar (GJ-25)"],
+        "villages": ["Porbandar", "Adityana", "Bokhira", "Chhaya"]
+      },
+      {
+        "name": "Ranavav",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Ranavav", "Bapodad", "Kandorna", "Rana Kandorna"]
+      },
+      {
+        "name": "Kutiyana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kutiyana", "Chauhta", "Mahiyari", "Pasvali"]
+      }
+    ]
+  },
+  {
+    "name": "Rajkot",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Rajkot (GJ-03)"],
+    "talukas": [
+      {
+        "name": "Rajkot",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Rajkot (GJ-03)"],
+        "villages": ["Rajkot", "Kuvadva", "Metoda", "Shapar"]
+      },
+      {
+        "name": "Gondal",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Gondal", "Derdi", "Gomta", "Vasavad"]
+      },
+      {
+        "name": "Jetpur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jetpur", "Amrapur", "Kagvad", "Virpur"]
+      },
+      {
+        "name": "Dhoraji",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dhoraji", "Jamnavad", "Moti Marad", "Supedi"]
+      },
+      {
+        "name": "Upleta",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Upleta", "Bhayavadar", "Kolki", "Paneli"]
+      },
+      {
+        "name": "Jamkandorna",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jamkandorna", "Chareliya", "Khajurda", "Sanala"]
+      },
+      {
+        "name": "Paddhari",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Paddhari", "Dhrol", "Mota Khijadiya", "Targhari"]
+      },
+      {
+        "name": "Lodhika",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Lodhika", "Metoda", "Pal", "Sanganva"]
+      },
+      {
+        "name": "Kotda Sangani",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kotda Sangani", "Ardoi", "Bagdad", "Solia"]
+      },
+      {
+        "name": "Jasdan",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Jasdan", "Atkot", "Bhadla", "Vinchhiya"]
+      }
+    ]
+  },
+  {
+    "name": "Sabarkantha",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Sabarkantha (Himmatnagar) (GJ-09)"],
+    "talukas": [
+      {
+        "name": "Himmatnagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Sabarkantha (Himmatnagar) (GJ-09)"],
+        "villages": ["Himmatnagar", "Gambhoi", "Hapa", "Raigadh"]
+      },
+      {
+        "name": "Idar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Idar", "Jadar", "Laloda", "Vadiyavir"]
+      },
+      {
+        "name": "Prantij",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Prantij", "Ghadkan", "Poglu", "Salal"]
+      },
+      {
+        "name": "Talod",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Talod", "Harsol", "Mahiyal", "Ransan"]
+      },
+      {
+        "name": "Khedbrahma",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Khedbrahma", "Agiya", "Matoda", "Poshina"]
+      },
+      {
+        "name": "Vadali",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vadali", "Choriwad", "Kheroj", "Veda"]
+      },
+       {
+        "name": "Vijaynagar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vijaynagar", "Antarsumba", "Chitariya", "Dholwani"]
+      }
+    ]
+  },
+  {
+    "name": "Surat",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Surat (GJ-05)", "RTO Surat East (Pal) (GJ-28)"],
+    "talukas": [
+      {
+        "name": "Surat City",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Surat (GJ-05)"],
+        "villages": ["Adajan", "Katargam", "Udhna", "Varachha"]
+      },
+      {
+        "name": "Choryasi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Surat East (Pal) (GJ-28)"],
+        "villages": ["Choryasi", "Bhatpor", "Ichhapore", "Sachin"]
+      },
+      {
+        "name": "Olpad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Olpad", "Kudsad", "Masma", "Sayan"]
+      },
+      {
+        "name": "Kamrej",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kamrej", "Kathor", "Kholvad", "Pasodara"]
+      },
+      {
+        "name": "Mangrol",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mangrol", "Kosamba", "Mota Miya", "Vankal"]
+      },
+      {
+        "name": "Mandvi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mandvi", "Areth", "Tadkeshwar", "Visdaliya"]
+      },
+      {
+        "name": "Umarpada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Umarpada", "Chitukhadi", "Kevdi", "Umarda"]
+      },
+      {
+        "name": "Bardoli",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "ARTO Bardoli (GJ-19)"],
+        "villages": ["Bardoli", "Afwa", "Baben", "Kadod"]
+      },
+      {
+        "name": "Mahuva",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Mahuva", "Anaval", "Karcheliya", "Vanskui"]
+      },
+      {
+        "name": "Palsana",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Palsana", "Baleshwar", "Chalthan", "Kadodara"]
+      }
+    ]
+  },
+  {
+    "name": "Surendranagar",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Surendranagar (GJ-13)"],
+    "talukas": [
+       {
+        "name": "Wadhwan",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Surendranagar (GJ-13)"],
+        "villages": ["Wadhwan", "Dudhrej", "Kothariya", "Surendranagar"]
+      },
+      {
+        "name": "Limbdi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Limbdi", "Pansina", "Ralol", "Shiani"]
+      },
+      {
+        "name": "Sayla",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sayla", "Dhandhalpur", "Doliya", "Sudamada"]
+      },
+      {
+        "name": "Chotila",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Chotila", "Bamangam", "Mota Kandasar", "Nava"]
+      },
+      {
+        "name": "Muli",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Muli", "Digsar", "Gautamgadh", "Sarakdi"]
+      },
+      {
+        "name": "Dhrangadhra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dhrangadhra", "Halvad", "Kuda", "Rajcharadi"]
+      },
+      {
+        "name": "Dasada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dasada", "Bajana", "Patdi", "Zinzuwada"]
+      },
+      {
+        "name": "Lakhtar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Lakhtar", "Lilapur", "Olak", "Vithalgadh"]
+      },
+      {
+        "name": "Thangadh",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Thangadh", "Abhepar", "Jamwadi", "Morthala"]
+      }
+    ]
+  },
+  {
+    "name": "Tapi",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Tapi (Vyara) (GJ-26)"],
+    "talukas": [
+      {
+        "name": "Vyara",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Tapi (Vyara) (GJ-26)"],
+        "villages": ["Vyara", "Balpur", "Doswada", "Kapuram"]
+      },
+      {
+        "name": "Songadh",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Songadh", "Doswada", "Ukai", "Vajpur"]
+      },
+      {
+        "name": "Valod",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Valod", "Buhari", "Delwada", "Syadla"]
+      },
+      {
+        "name": "Uchchhal",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Uchchhal", "Jamli", "Karod", "Panchol"]
+      },
+      {
+        "name": "Nizar",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Nizar", "Kukarmunda", "Raygadh", "Velda"]
+      },
+      {
+        "name": "Kukarmunda",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kukarmunda", "Fulwadi", "Kukarma", "Taloda"]
+      }
+    ]
+  },
+   {
+    "name": "Vadodara",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Vadodara (GJ-06)"],
+    "talukas": [
+       {
+        "name": "Vadodara City",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Vadodara (GJ-06)"],
+        "villages": ["Vadodara", "Gorwa", "Manjalpur", "Sayajigunj"]
+      },
+      {
+        "name": "Vadodara Rural",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Vadodara (GJ-06)"],
+        "villages": ["Bhayli", "Koyali", "Padra", "Sevasi"]
+      },
+      {
+        "name": "Padra",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Padra", "Bhoj", "Ranu", "Vadu"]
+      },
+      {
+        "name": "Karjan",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Karjan", "Choranda", "Kandari", "Miyagam"]
+      },
+      {
+        "name": "Sinor",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Sinor", "Barkal", "Malsar", "Sadhli"]
+      },
+      {
+        "name": "Dabhoi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dabhoi", "Bhilapur", "Kayavarohan", "Mandala"]
+      },
+       {
+        "name": "Waghodia",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Waghodia", "Asoj", "Jarod", "Rustampura"]
+      },
+      {
+        "name": "Savli",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Savli", "Bhadarva", "Manjusar", "Samlaya"]
+      }
+    ]
+  },
+  {
+    "name": "Valsad",
+    "offices": ["District Collector Office", "District Panchayat", "RTO Valsad (GJ-15)"],
+    "talukas": [
+      {
+        "name": "Valsad",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat", "RTO Valsad (GJ-15)"],
+        "villages": ["Valsad", "Atul", "Dungri", "Tithal"]
+      },
+      {
+        "name": "Pardi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Pardi", "Bagwada", "Killa", "Udvada"]
+      },
+      {
+        "name": "Vapi",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Vapi", "Balitha", "Chala", "Karvad"]
+      },
+      {
+        "name": "Umbergaon",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Umbergaon", "Bhilad", "Maroli", "Sanjan"]
+      },
+      {
+        "name": "Dharampur",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Dharampur", "Barumal", "Kharvel", "Nanapondha"]
+      },
+      {
+        "name": "Kaprada",
+        "offices": ["Mamlatdar Office", "Taluka Panchayat"],
+        "villages": ["Kaprada", "Mota Ponda", "Nana Ponda", "Sutharpada"]
+      }
+    ]
+  }
+
+]

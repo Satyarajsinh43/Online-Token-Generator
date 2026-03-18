@@ -1,0 +1,54 @@
+{
+    "keywords": {
+        "RTO": "rto",
+        "ARTO": "rto",
+        "Mamlatdar": "revenue",
+        "Collector": "revenue",
+        "Seva Sadan": "revenue",
+        "Panchayat": "panchayat",
+        "Hospital": "health"
+    },
+    "services": {
+        "rto": [
+            "Learner's License",
+            "Permanent Driving License",
+            "Driving License Renewal",
+            "Vehicle Registration (New)",
+            "RC Transfer / HPA",
+            "Fitness Certificate",
+            "International Driving Permit",
+            "Address Change in DL/RC"
+        ],
+        "revenue": [
+            "Income Certificate",
+            "Caste Certificate (SC/ST/SEBC/General)",
+            "Non-Creamylayer Certificate",
+            "Domicile Certificate",
+            "Senior Citizen Certificate",
+            "Character Certificate",
+            "Ration Card - Add Name",
+            "Ration Card - Remove Name",
+            "New Ration Card Application",
+            "Widow Pension Scheme",
+            "EWS Certificate"
+        ],
+        "panchayat": [
+            "Birth Certificate Registration",
+            "Death Certificate Registration",
+            "Marriage Registration",
+            "Property Tax Assessment",
+            "BPL List Addition",
+            "Construction Permission"
+        ],
+        "health": [
+            "OPD Appointment",
+            "Medical Certificate",
+            "Disability Certificate",
+            "Blood Donation"
+        ],
+        "default": [
+            "General Inquiry",
+            "Grievance Redressal"
+        ]
+    }
+}

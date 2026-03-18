@@ -1,13 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import AuthContext from "../context/AuthContext";
 import "./Login.css";
 
 const Login = () => {
   const { t } = useLanguage();
+  const { loginUser, user } = useContext(AuthContext); // Get loginUser from context
+  const navigate = useNavigate();
   const [loginMethod, setLoginMethod] = useState("mobile"); // 'mobile' or 'email'
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  // Redirect if already logged in
+  // Redirect if already logged in
+  useEffect(() => {
+    console.log("Login useEffect - User:", user);
+    if (user) {
+      console.log("Redirecting based on role:", user.role);
+      if (user.role === 'SUPERADMIN' || user.role === 'OFFICEADMIN') {
+          console.log("Navigating to Admin Dashboard");
+          navigate('/admin-dashboard');
+      }
+      else if (user.role === 'EMPLOYEE') {
+          console.log("Navigating to Staff Dashboard");
+          navigate('/staff-dashboard');
+      }
+      else {
+          console.log("Navigating to Citizen Dashboard");
+          navigate('/citizen-dashboard');
+      }
+    }
+  }, [user, navigate]);
+
+  if (user) return null; // Don't render login form if redirecting
 
   const handleMobileChange = (e) => {
     const value = e.target.value;
@@ -22,7 +49,7 @@ const Login = () => {
     setError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -39,8 +66,18 @@ const Login = () => {
       }
     }
 
-    // TODO: Connect to backend authentication
-    console.log("Logging in with:", { loginMethod, identifier, password });
+    const username = identifier;
+    const success = await loginUser(username, password);
+
+    if (success) {
+      // Navigation will be handled by the effect or redirect logic based on updated user state
+      // But since user update might be async, we can check localStorage or wait for re-render
+      // However, better to rely on the return value and updated state
+      // We can force a check or just let the component re-render and the check at top to handle it
+      // Or adding explicit navigation here based on the decoded token
+    } else {
+      setError(t.invalidCredentials || "Invalid credentials");
+    }
   };
 
   return (

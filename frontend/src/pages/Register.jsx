@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import AuthContext from "../context/AuthContext";
 import "./Register.css";
 
 const Register = () => {
   const { t } = useLanguage();
+  const { registerUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -50,7 +54,7 @@ const Register = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -64,8 +68,20 @@ const Register = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log("Registering:", formData);
-      // TODO: Backend call
+      const userData = {
+        username: formData.mobile, // Using mobile as username
+        password: formData.password,
+        email: formData.email,
+        first_name: formData.fullName,
+        role: 'CUSTOMER' // Default role
+      };
+
+      const success = await registerUser(userData);
+
+      if (success) {
+        alert("Registration Successful! Please login.");
+        navigate('/login');
+      }
     }
   };
 

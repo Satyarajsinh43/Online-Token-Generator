@@ -64,3 +64,120 @@
     font-size: 1.75rem;
   }
 }
+
+/* Identity Verification & New Layouts */
+.form-section-header {
+  margin: 1.5rem 0 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.form-section-header h3 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.form-divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 2rem 0;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.input-with-btn {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-with-btn input {
+  flex: 1;
+}
+
+.input-with-btn button {
+  white-space: nowrap;
+}
+
+.success-message {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid #a7f3d0;
+}
+
+.gov-btn-secondary {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.gov-btn-secondary:hover {
+  background-color: #d1d5db;
+}
+
+/* OTP Styling */
+.otp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+}
+
+.otp-input-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.otp-field {
+  flex: 1;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 0.75rem;
+}
+
+.otp-message {
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.otp-message.error {
+  color: #dc2626;
+  /* red */
+}
+
+.otp-message.success {
+  color: #059669;
+  /* green */
+}
+
+.secure-btn {
+  background-color: #059669;
+  /* distinctive green for verified state */
+}
+
+.secure-btn:disabled {
+  background-color: #9ca3af;
+}

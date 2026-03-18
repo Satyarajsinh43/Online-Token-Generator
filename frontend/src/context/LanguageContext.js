@@ -6,14 +6,24 @@ const LanguageContext = createContext();
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
 
+  const changeLanguage = (lang) => {
+    if (translations[lang]) {
+      setLanguage(lang);
+    }
+  };
+
   const toggleLanguage = () => {
-    setLanguage((prevLang) => (prevLang === 'en' ? 'gu' : 'en'));
+    setLanguage((prevLang) => {
+      if (prevLang === 'en') return 'gu';
+      if (prevLang === 'gu') return 'hi';
+      return 'en';
+    });
   };
 
   const t = translations[language];
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, changeLanguage, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
