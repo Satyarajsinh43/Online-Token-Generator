@@ -148,3 +148,24 @@
     padding: 1rem;
   }
 }
+
+/* Custom Password Hint in Register Page */
+.custom-password-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.custom-password-row::after {
+  content: "Password requirements:\A• At least 8 characters\A• Uppercase & lowercase letters (A-Z, a-z)\A• Numerical digits (0-9)\A• Special characters (!@#$%^&*)";
+  white-space: pre-wrap;
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #495057;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  box-sizing: border-box;
+}

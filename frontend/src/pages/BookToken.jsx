@@ -23,13 +23,19 @@ const BookToken = () => {
   const [selectedOffice, setSelectedOffice] = useState("");
   const [selectedService, setSelectedService] = useState("");
 
+  // Slot-based State
+  const [bookingDate, setBookingDate] = useState("");
+  const [slots, setSlots] = useState([]);
+  const [selectedSlot, setSelectedSlot] = useState("");
+  const [slotsLoading, setSlotsLoading] = useState(false);
+
   const [talukas, setTalukas] = useState([]);
   const [villages, setVillages] = useState([]);
   const [offices, setOffices] = useState([]);
   const [services, setServices] = useState([]);
 
   const [name, setName] = useState(user ? user.first_name || user.username : "");
-  const [mobile, setMobile] = useState(user ? user.username : "");
+  const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
 
   // OTP State
@@ -84,6 +90,28 @@ const BookToken = () => {
     }
 
   }, [areaType, selectedDistrict]); // Added selectedDistrict dependency for RTO check
+
+  // Fetch Slots when Office and Date are selected
+  useEffect(() => {
+    if (selectedOffice && bookingDate) {
+      const fetchSlots = async () => {
+        setSlotsLoading(true);
+        try {
+          const response = await axios.get(`${config.API_URL}available-slots/?date=${bookingDate}&office_id=${selectedOffice}`, { headers: { Authorization: null } });
+          setSlots(response.data);
+        } catch (error) {
+          console.error("Error fetching slots:", error);
+          setSlots([]);
+        } finally {
+          setSlotsLoading(false);
+        }
+      };
+      fetchSlots();
+    } else {
+      setSlots([]);
+      setSelectedSlot("");
+    }
+  }, [selectedOffice, bookingDate]);
 
   const handleDistrictChange = async (e) => {
     const districtId = e.target.value;
@@ -226,6 +254,35 @@ const BookToken = () => {
     }
   };
 
+  const sendTokenEmail = (data) => {
+    // Generate an external QR Code URL pointing to your verification page
+    const verifyUrl = `http://localhost:5173/verify-token/${data.token_hash}`;
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(verifyUrl)}`;
+
+    const templateParams = {
+      email: email,
+      name: data.customer_name,
+      token_number: data.token_number,
+      office: data.office_name,
+      date: data.booking_date,
+      slot: data.slot_time,
+      qr_code_url: qrCodeUrl // Pass this URL to EmailJS
+    };
+
+    emailjs.send(
+      "service_lor8naa",
+      "template_itt2nqu",
+      templateParams,
+      "9g8wx1Zge3XNxD6Sg"
+    )
+    .then(() => {
+      console.log("Email sent successfully");
+    })
+    .catch((error) => {
+      console.error("Email error", error);
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -235,6 +292,14 @@ const BookToken = () => {
     }
     if (!selectedService) {
       alert("Please select a Type of Work (Service)");
+      return;
+    }
+    if (!bookingDate) {
+      alert("Please select a Booking Date");
+      return;
+    }
+    if (!selectedSlot) {
+      alert("Please select a Time Slot");
       return;
     }
 
@@ -251,14 +316,27 @@ const BookToken = () => {
       village_id: selectedVillage || null,
       office_id: selectedOffice,
       service_id: selectedService,
+      booking_date: bookingDate,
+      slot_time: selectedSlot,
     };
 
     try {
       // Use the new book-token endpoint
       const response = await axios.post(`${config.API_URL}book-token/`, payload);
+      const tokenData = response.data;
+
+      alert("Token Booked Successfully");
+
+      // Auto Download PDF
+      if (tokenData.receipt_url) {
+          window.open(`${config.API_URL}${tokenData.receipt_url.replace('/api/', '')}`, "_blank");
+      }
+
+      // Send Email wrapper
+      sendTokenEmail(tokenData);
 
       // Navigate to Receipt Page
-      navigate('/token-receipt', { state: { tokenData: response.data } });
+      navigate('/token-receipt', { state: { tokenData: tokenData } });
 
     } catch (error) {
       console.error("Submission Error:", error);
@@ -293,11 +371,11 @@ const BookToken = () => {
               />
             </div>
             <div className="form-group">
-              <label>Email Address</label>
+              <label>{t.email}</label>
               <input
                 type="email"
                 className="gov-input"
-                placeholder="Enter Email"
+                placeholder={t.enterEmail}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isVerified}
@@ -312,7 +390,6 @@ const BookToken = () => {
                 placeholder={t.mobilePlaceholder}
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
-                disabled={!!user}
               />
             </div>
 
@@ -320,7 +397,7 @@ const BookToken = () => {
             <div className="otp-section">
               {!isVerified && !showOtpInput && (
                 <button type="button" className="gov-btn gov-btn-secondary" onClick={handleSendOtp} disabled={otpLoading || !email}>
-                  {otpLoading ? "Sending..." : "Send Email OTP"}
+                  {otpLoading ? t.sendingOtp : t.sendOtp}
                 </button>
               )}
 
@@ -329,13 +406,13 @@ const BookToken = () => {
                   <input
                     type="text"
                     className="gov-input otp-field"
-                    placeholder="Enter 6-digit OTP"
+                    placeholder={t.otpPlaceholder}
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)}
                     maxLength="6"
                   />
                   <button type="button" className="gov-btn gov-btn-primary" onClick={handleVerifyOtp} disabled={otpLoading}>
-                    {otpLoading ? "Verifying..." : "Verify"}
+                    {otpLoading ? t.verifyingOtp : t.verifyOtp}
                   </button>
                 </div>
               )}
@@ -477,13 +554,60 @@ const BookToken = () => {
               </div>
             )}
 
+            {selectedOffice && selectedService && (
+              <div className="form-group">
+                <label>Booking Date</label>
+                <input
+                  type="date"
+                  className="gov-input"
+                  value={bookingDate}
+                  min={new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setBookingDate(e.target.value)}
+                  required
+                />
+              </div>
+            )}
+
+            {bookingDate && selectedOffice && (
+              <div className="form-group">
+                <label>Available Slots</label>
+                {slotsLoading ? (
+                  <p>Loading slots...</p>
+                ) : slots.length > 0 ? (
+                  <div className="slots-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: '10px' }}>
+                    {slots.map((slot) => (
+                      <button
+                        type="button"
+                        key={slot.time}
+                        onClick={() => setSelectedSlot(slot.time)}
+                        disabled={!slot.available}
+                        style={{
+                          padding: '10px',
+                          border: selectedSlot === slot.time ? '2px solid var(--primary-blue)' : '1px solid #ccc',
+                          backgroundColor: !slot.available ? '#f5f5f5' : selectedSlot === slot.time ? '#e3f2fd' : 'white',
+                          color: !slot.available ? '#999' : '#333',
+                          borderRadius: '4px',
+                          cursor: !slot.available ? 'not-allowed' : 'pointer'
+                        }}
+                      >
+                        {slot.time}
+                        {!slot.available && <div style={{fontSize: '10px', color: 'red'}}>Full</div>}
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <p style={{ color: 'red' }}>No slots available for this date.</p>
+                )}
+              </div>
+            )}
+
             <div className="form-actions">
               <button
                 type="submit"
                 className="gov-btn gov-btn-primary full-width secure-btn"
                 disabled={loading || !isVerified}
               >
-                {!isVerified ? "🔒 Verify Contact to Generate Token" : t.generateToken}
+                {!isVerified ? t.verifyContact : t.generateToken}
               </button>
             </div>
           </form>

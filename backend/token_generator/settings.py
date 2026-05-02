@@ -133,9 +133,12 @@ STATIC_URL = 'static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'api.authentication.ClerkAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+CLERK_SECRET_KEY = 'sk_test_UVAb5mY7z6sgKHS0JEfRFnLu0pAyqAzdlVzbMACCOh'
 
 from datetime import timedelta
 SIMPLE_JWT = {

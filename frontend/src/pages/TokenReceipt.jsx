@@ -41,12 +41,12 @@ const TokenReceipt = () => {
 
                     <div className="receipt-details">
                         <div className="detail-row">
-                            <span className="label">{t.date}:</span>
-                            <span className="value">{new Date().toLocaleDateString()}</span>
+                            <span className="label">Booking Date:</span>
+                            <span className="value">{tokenData.booking_date || new Date().toLocaleDateString()}</span>
                         </div>
                         <div className="detail-row">
-                            <span className="label">{t.time}:</span>
-                            <span className="value">{new Date().toLocaleTimeString()}</span>
+                            <span className="label">Reporting Time Slot:</span>
+                            <span className="value">{tokenData.slot_time || new Date().toLocaleTimeString()}</span>
                         </div>
                         <div className="detail-row">
                             <span className="label">{t.applicantName}:</span>

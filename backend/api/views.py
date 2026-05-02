@@ -1,7 +1,7 @@
 from rest_framework import viewsets, generics, status, permissions
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view, permission_classes
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from .models import Office, Token, Employee, Profile, District, Taluka, Village, Service, OTPVerification
@@ -115,9 +115,8 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
 
     def get_permissions(self):
-        if self.action in ['create', 'update', 'partial_update', 'destroy']:
-            return [permissions.IsAuthenticated(), (IsSuperAdmin | IsOfficeAdmin)]
-        return [permissions.IsAuthenticated(), (IsSuperAdmin | IsOfficeAdmin)]
+        permission_classes = [permissions.IsAuthenticated, IsSuperAdmin | IsOfficeAdmin]
+        return [permission() for permission in permission_classes]
 
     def get_queryset(self):
         user = self.request.user
@@ -219,10 +218,17 @@ class TokenViewSet(viewsets.ModelViewSet):
         if self.action == 'check_status':
             return [permissions.AllowAny()]
         if self.action in ['update', 'partial_update']:
-             return [permissions.IsAuthenticated(), (IsEmployee | IsSuperAdmin | IsOfficeAdmin)]
+             permission_classes = [permissions.IsAuthenticated, IsEmployee | IsSuperAdmin | IsOfficeAdmin]
+             return [permission() for permission in permission_classes]
         return [permissions.IsAuthenticated()]
 
     def get_queryset(self):
+        # Auto-cancel outdated waiting tokens before returning
+        Token.objects.filter(
+            booking_date__lt=timezone.now().date(), 
+            status='WAITING'
+        ).update(status='CANCELLED')
+
         # Allow unrestricted access for check_status via its own logic, 
         # but for list/retrieve, restrict based on role.
         if self.action == 'check_status':
@@ -232,20 +238,27 @@ class TokenViewSet(viewsets.ModelViewSet):
         if not user.is_authenticated or not hasattr(user, 'profile'):
              return Token.objects.none()
 
+        queryset = Token.objects.none()
         if user.profile.role == 'SUPERADMIN':
-            return Token.objects.all()
+            queryset = Token.objects.all()
         elif user.profile.role == 'OFFICEADMIN':
-            return Token.objects.filter(office=user.profile.assigned_office)
+            queryset = Token.objects.filter(office=user.profile.assigned_office)
         elif user.profile.role == 'EMPLOYEE':
              try:
-                 if user.profile.assigned_office:
-                     return Token.objects.filter(office=user.profile.assigned_office)
-                 return Token.objects.none()
+                 if user.profile.assigned_district:
+                     queryset = Token.objects.filter(office__district=user.profile.assigned_district)
+                 elif user.profile.assigned_office:
+                     queryset = Token.objects.filter(office=user.profile.assigned_office)
              except:
-                 return Token.objects.none()
+                 pass
         elif user.profile.role == 'CUSTOMER':
-            return Token.objects.filter(customer=user)
-        return Token.objects.none()
+            queryset = Token.objects.filter(customer=user)
+
+        booking_date = self.request.query_params.get('booking_date')
+        if booking_date:
+            queryset = queryset.filter(booking_date=booking_date)
+
+        return queryset
 
     def create(self, request, *args, **kwargs):
         office_id = request.data.get('office')
@@ -277,6 +290,23 @@ class TokenViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(data=request.data)
         
+        # Validate slot capacity for TokenViewSet
+        booking_date_str = request.data.get('booking_date')
+        slot_time_str = request.data.get('slot_time')
+
+        if booking_date_str and slot_time_str:
+            try:
+                count = Token.objects.filter(
+                    booking_date=booking_date_str, 
+                    slot_time=slot_time_str, 
+                    office=office, 
+                    status__in=['WAITING', 'SERVING', 'COMPLETED']
+                ).count()
+                if count >= 5:
+                    return Response({"error": "Selected slot is full."}, status=status.HTTP_400_BAD_REQUEST)
+            except Exception:
+                pass
+
         # Populate new hierarchy fields from the selected Office
         token = Token.objects.create(
             token_number=token_number,
@@ -293,6 +323,8 @@ class TokenViewSet(viewsets.ModelViewSet):
             customer_phone=request.data.get('mobile_number'), # Map to new field
             mobile_number=request.data.get('mobile_number'), # redundant but keep
             email=request.data.get('email'),
+            booking_date=booking_date_str,
+            slot_time=slot_time_str,
             status='WAITING'
         )
         
@@ -329,6 +361,12 @@ class TokenViewSet(viewsets.ModelViewSet):
             
         try:
             token = Token.objects.get(token_number=token_number)
+            
+            # Auto-cancel if outdated
+            if token.booking_date and token.booking_date < timezone.now().date() and token.status == 'WAITING':
+                token.status = 'CANCELLED'
+                token.save()
+                
             serializer = TokenSerializer(token)
             return Response(serializer.data)
         except Token.DoesNotExist:
@@ -361,6 +399,23 @@ class BookTokenView(generics.CreateAPIView):
         except (Office.DoesNotExist, Service.DoesNotExist) as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Validate slot capacity for BookTokenView
+        booking_date_str = data.get('booking_date')
+        slot_time_str = data.get('slot_time')
+
+        if booking_date_str and slot_time_str:
+            try:
+                count = Token.objects.filter(
+                    booking_date=booking_date_str, 
+                    slot_time=slot_time_str, 
+                    office=office, 
+                    status__in=['WAITING', 'SERVING', 'COMPLETED']
+                ).count()
+                if count >= 5:
+                    return Response({"error": "Selected slot is full."}, status=status.HTTP_400_BAD_REQUEST)
+            except Exception:
+                pass
+
         # Handle Customer (Auth or Guest)
         customer = request.user if request.user.is_authenticated else None
         
@@ -379,6 +434,8 @@ class BookTokenView(generics.CreateAPIView):
             village_id=data.get('village_id'),
             rural_or_urban=office.office_type,
             
+            booking_date=booking_date_str,
+            slot_time=slot_time_str,
             status='WAITING'
         )
         
@@ -517,3 +574,197 @@ class VerifyOTPView(generics.GenericAPIView):
         otp_record.save()
         
         return Response({"verified": True, "message": "OTP verified successfully."}, status=status.HTTP_200_OK)
+
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def clerk_sync_user(request):
+    """
+    Syncs the Clerk user with Django User and Profile.
+    Called from frontend after successful Clerk authentication.
+    """
+    email = request.data.get('email')
+    name = request.data.get('name') or ''
+    first_name = request.data.get('first_name') or ''
+    last_name = request.data.get('last_name') or ''
+    
+    if not email:
+        return Response({'error': 'Email is required'}, status=status.HTTP_400_BAD_REQUEST)
+        
+    try:
+        # Avoid MultipleObjectsReturned by taking the first match if multiple exist
+        user = User.objects.filter(email=email).first()
+        created = False
+        if not user:
+            # Handle username clashes safely
+            username = email
+            if User.objects.filter(username=username).exists():
+                import uuid
+                username = f"{email}_{str(uuid.uuid4())[:8]}"
+            
+            user = User.objects.create(
+                username=username,
+                email=email,
+                first_name=first_name or name,
+                last_name=last_name,
+            )
+            created = True
+        
+        # Ensure Profile exists
+        profile, p_created = Profile.objects.get_or_create(user=user)
+        if p_created:
+            profile.role = 'CUSTOMER'
+            profile.save()
+
+        # Map to Gandhinagar automatically if specified staff email is detected
+        if email.lower() == 'raiyaniprince7@gmail.com':
+            profile.role = 'EMPLOYEE'
+            # Look for the Gandhinagar district safely
+            gdh_dist = District.objects.filter(name__icontains='gandhinagar').first()
+            if gdh_dist:
+                profile.assigned_district = gdh_dist
+            profile.save()
+            
+            # Ensure an Employee record exists for Admin visibility
+            if gdh_dist:
+                office = Office.objects.filter(district=gdh_dist).first()
+                if office and not hasattr(user, 'employee_profile'):
+                    Employee.objects.create(
+                        user=user,
+                        office=office,
+                        designation='Gandhinagar Staff'
+                    )
+
+        # Grant SUPERADMIN to developer emails
+        if email.lower().startswith('admin@'):
+            profile.role = 'SUPERADMIN'
+            profile.save()
+            
+        # Optional: update name if it changed
+        if not created and first_name:
+             user.first_name = first_name
+             user.last_name = last_name
+             user.save()
+             
+        # Resolve district name for frontend Context usage safely
+        district_name = None
+        if profile.assigned_district:
+            district_name = profile.assigned_district.name
+        elif profile.assigned_office and profile.assigned_office.district:
+            district_name = profile.assigned_office.district.name
+
+        # Return user details need for AuthContext
+        return Response({
+            'message': 'User synced successfully',
+            'user': {
+                'id': user.id,
+                'email': user.email,
+                'username': user.username,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'role': profile.role,
+                'assigned_office': profile.assigned_office.id if profile.assigned_office else None,
+                'district_name': district_name,
+            }
+        }, status=status.HTTP_200_OK if not created else status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+from datetime import datetime, timedelta, time
+from django.db.models import Count
+
+class AvailableSlotsView(APIView):
+    """
+    Returns available 15-minute slots for a given date and office.
+    Capacity: 5 per slot.
+    """
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        date_str = request.query_params.get('date')
+        office_id = request.query_params.get('office_id')
+
+        if not date_str or not office_id:
+            return Response({"error": "date and office_id are required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            booking_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+            if booking_date < timezone.now().date():
+                 return Response({"error": "Cannot book for past dates."}, status=status.HTTP_400_BAD_REQUEST)
+        except ValueError:
+            return Response({"error": "Invalid date format. Use YYYY-MM-DD"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Generate 15 min slots from 09:00 to 16:45
+        slots = []
+        current_time = datetime.combine(booking_date, time(9, 0))
+        end_time = datetime.combine(booking_date, time(17, 0))
+
+        while current_time < end_time:
+            slots.append(current_time.time())
+            current_time += timedelta(minutes=15)
+
+        # Count existing tokens for the given date and office, grouped by slot_time
+        booked_counts = Token.objects.filter(
+            booking_date=booking_date,
+            office_id=office_id,
+            status__in=['WAITING', 'SERVING', 'COMPLETED']
+        ).values('slot_time').annotate(count=Count('id'))
+
+        # Convert to dictionary { time_obj: count }
+        count_dict = {item['slot_time']: item['count'] for item in booked_counts if item['slot_time']}
+
+        response_data = []
+        for slot in slots:
+            count = count_dict.get(slot, 0)
+            response_data.append({
+                "time": slot.strftime('%H:%M'),
+                "available": count < 5,
+                "current_capacity": count
+            })
+
+        return Response(response_data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([permissions.IsAuthenticated])
+def verify_token(request):
+    user = request.user
+    token_hash = request.data.get("token_hash")
+
+    if not token_hash:
+        return Response({"error": "Token hash is required"}, status=400)
+
+    try:
+        token = Token.objects.get(token_hash=token_hash)
+    except Token.DoesNotExist:
+        return Response({"error": "Invalid token"}, status=404)
+
+    # Check staff role
+    if not hasattr(user, 'profile') or user.profile.role not in ['EMPLOYEE', 'SUPERADMIN', 'OFFICEADMIN']:
+        return Response({"error": "Unauthorized"}, status=403)
+
+    # Check district match for standard employees
+    if user.profile.role == 'EMPLOYEE':
+        has_access = False
+        if user.profile.assigned_district and token.office.district == user.profile.assigned_district:
+            has_access = True
+        elif user.profile.assigned_office and token.office == user.profile.assigned_office:
+            has_access = True
+            
+        if not has_access:
+            return Response({"error": "Access denied"}, status=403)
+
+    # Prevent re-verification
+    if token.status != "WAITING":
+        return Response({"error": "Token already used or cancelled. Current Status: " + token.status}, status=400)
+
+    token.status = "VERIFIED"
+    token.verified_by = user
+    token.verified_at = timezone.now()
+    token.save()
+
+    return Response({
+        "message": "Token verified successfully",
+        "token_number": token.token_number
+    })

@@ -99,6 +99,7 @@ class TokenSerializer(serializers.ModelSerializer):
     office_name = serializers.ReadOnlyField(source='office.office_name')
     generated_by_name = serializers.ReadOnlyField(source='generated_by.user.user_name')
     customer_username = serializers.ReadOnlyField(source='customer.username')
+    verified_by_name = serializers.ReadOnlyField(source='verified_by.first_name')
     
     district_name = serializers.ReadOnlyField(source='district.name')
     taluka_name = serializers.ReadOnlyField(source='taluka.name')
@@ -109,7 +110,7 @@ class TokenSerializer(serializers.ModelSerializer):
         fields = '__all__'
         # These fields are read-only because they are set by backend logic or reference models
         read_only_fields = ('token_number', 'created_at', 'updated_at', 'status', 'generated_by', 'customer', 
-                            'district', 'taluka', 'village', 'rural_or_urban')
+                            'district', 'taluka', 'village', 'rural_or_urban', 'verified_by', 'verified_at')
 
 class TokenStatusUpdateSerializer(serializers.ModelSerializer):
     class Meta:
@@ -125,7 +126,9 @@ class BookTokenSerializer(serializers.ModelSerializer):
     village_id = serializers.IntegerField(required=False, allow_null=True)
     office_id = serializers.IntegerField()
     service_id = serializers.IntegerField()
+    booking_date = serializers.DateField()
+    slot_time = serializers.TimeField()
 
     class Meta:
         model = Token
-        fields = ['customer_name', 'customer_phone', 'district_id', 'taluka_id', 'village_id', 'office_id', 'service_id']
+        fields = ['customer_name', 'customer_phone', 'district_id', 'taluka_id', 'village_id', 'office_id', 'service_id', 'booking_date', 'slot_time']

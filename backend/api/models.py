@@ -70,6 +70,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='CUSTOMER')
     assigned_office = models.ForeignKey(Office, on_delete=models.SET_NULL, null=True, blank=True, help_text="For OfficeAdmin and Employee")
+    assigned_district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, blank=True, help_text="For District-level view access")
 
     def __str__(self):
         return f"{self.user.username} - {self.role}"
@@ -104,6 +105,7 @@ class Service(models.Model):
 class Token(models.Model):
     STATUS_CHOICES = [
         ('WAITING', 'Waiting'),
+        ('VERIFIED', 'Verified'),
         ('SERVING', 'Serving'),
         ('COMPLETED', 'Completed'),
         ('CANCELLED', 'Cancelled'),
@@ -116,7 +118,7 @@ class Token(models.Model):
     token_number = models.CharField(max_length=20, unique=True, editable=False)
     
     # Blockchain Details
-    token_hash = models.CharField(max_length=256, null=True, blank=True)
+    token_hash = models.CharField(max_length=256, unique=True, null=True, blank=True)
     blockchain_tx = models.CharField(max_length=256, null=True, blank=True)
     
     # Store complete hierarchy for reporting
@@ -138,6 +140,14 @@ class Token(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     email = models.EmailField(null=True, blank=True)
     mobile_number = models.CharField(max_length=15, null=True, blank=True)
+    
+    # Slot-based booking additions
+    booking_date = models.DateField(null=True, blank=True)
+    slot_time = models.TimeField(null=True, blank=True)
+    
+    # Verification System
+    verified_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='verified_tokens')
+    verified_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['created_at']

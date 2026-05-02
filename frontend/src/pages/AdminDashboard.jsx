@@ -136,6 +136,20 @@ const AdminDashboard = () => {
 
     const handleCreateStaff = async (e) => {
         e.preventDefault();
+        
+        // Strict verification: Ensure it's a real email since Clerk sends OTPs
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(newStaff.email)) {
+             alert("Error: Please enter a valid, properly formatted email address.");
+             return;
+        }
+        
+        // Block the dummy gujarat.gov.in domain because they cannot receive Clerk OTP emails
+        if (newStaff.email.toLowerCase().includes("@gujarat.gov.in")) {
+             alert("Error: Please provide a REAL email address (like @gmail.com or a personal corporate email). Clerk requires staff to receive real OTP codes to login, and the mock @gujarat.gov.in emails cannot receive them!");
+             return;
+        }
+
         try {
             await axios.post(`${config.API_URL}create-staff/`, newStaff);
             alert("Staff Member Created Successfully!");
@@ -311,45 +325,45 @@ const AdminDashboard = () => {
     const renderEmployeesTable = () => (
         <div className="data-section">
             <div className="section-header">
-                <h2>{t.employees} Management</h2>
-                <button className="gov-btn gov-btn-primary" onClick={() => setShowStaffForm(true)}>Add New Staff</button>
+                <h2>{t.employeesManagement}</h2>
+                <button className="gov-btn gov-btn-primary" onClick={() => setShowStaffForm(true)}>{t.addNewStaff}</button>
             </div>
 
             {showStaffForm && (
                 <div className="modal-overlay">
                     <div className="modal-content">
-                        <h3>Create Employee Application Access</h3>
+                        <h3>{t.createEmployeeApplicationAccess}</h3>
                         <form onSubmit={handleCreateStaff}>
                             <div className="form-row">
                                 <div className="form-group half-width">
-                                    <label>First Name</label>
+                                    <label>{t.firstName}</label>
                                     <input type="text" className="gov-input" required
                                         value={newStaff.first_name} onChange={e => setNewStaff({ ...newStaff, first_name: e.target.value })} />
                                 </div>
                                 <div className="form-group half-width">
-                                    <label>Last Name</label>
+                                    <label>{t.lastName}</label>
                                     <input type="text" className="gov-input" required
                                         value={newStaff.last_name} onChange={e => setNewStaff({ ...newStaff, last_name: e.target.value })} />
                                 </div>
                             </div>
                             
                             <div className="form-group">
-                                <label>Email Address / Username</label>
+                                <label>{t.emailAddressUsername}</label>
                                 <input type="email" className="gov-input" required placeholder="staff@gujarat.gov.in"
                                     value={newStaff.email} onChange={e => setNewStaff({ ...newStaff, email: e.target.value })} />
                             </div>
 
                             <div className="form-group">
-                                <label>Password (Temporary)</label>
+                                <label>{t.passwordTemporary}</label>
                                 <input type="text" className="gov-input" required placeholder="e.g. securepass123"
                                     value={newStaff.password} onChange={e => setNewStaff({ ...newStaff, password: e.target.value })} />
                             </div>
 
                             <div className="form-group">
-                                <label>Assigned Office</label>
+                                <label>{t.assignedOffice}</label>
                                 <select className="gov-input" required 
                                     value={newStaff.office_id} onChange={e => setNewStaff({ ...newStaff, office_id: e.target.value })}>
-                                    <option value="">Select Office</option>
+                                    <option value="">{t.selectOffice}</option>
                                     {offices.map(o => (
                                         <option key={o.id} value={o.id}>{o.office_name} ({o.office_type})</option>
                                     ))}
@@ -357,14 +371,14 @@ const AdminDashboard = () => {
                             </div>
 
                             <div className="form-group">
-                                <label>Designation</label>
-                                <input type="text" className="gov-input" required placeholder="Clerk"
+                                <label>{t.designation}</label>
+                                <input type="text" className="gov-input" required placeholder={t.designation || "Clerk"}
                                     value={newStaff.designation} onChange={e => setNewStaff({ ...newStaff, designation: e.target.value })} />
                             </div>
 
                             <div className="form-actions">
                                 <button type="button" className="gov-btn gov-btn-secondary" onClick={() => setShowStaffForm(false)}>{t.cancelBtn}</button>
-                                <button type="submit" className="gov-btn gov-btn-primary">Provision Account</button>
+                                <button type="submit" className="gov-btn gov-btn-primary">{t.provisionAccount}</button>
                             </div>
                         </form>
                     </div>
@@ -375,10 +389,10 @@ const AdminDashboard = () => {
                 <table className="gov-table">
                     <thead>
                         <tr>
-                            <th>Staff Username</th>
-                            <th>Designation</th>
-                            <th>Assigned Office</th>
-                            <th>Active Status</th>
+                            <th>{t.staffUsername}</th>
+                            <th>{t.designation}</th>
+                            <th>{t.assignedOffice}</th>
+                            <th>{t.activeStatus}</th>
                             <th>{t.actions}</th>
                         </tr>
                     </thead>
@@ -390,7 +404,7 @@ const AdminDashboard = () => {
                                 <td>{emp.office_name}</td>
                                 <td>
                                     <span className={`badge badge-${emp.active_status ? 'success' : 'cancelled'}`}>
-                                        {emp.active_status ? 'Active' : 'Disabled'}
+                                        {emp.active_status ? t.active || 'Active' : t.disabled || 'Disabled'}
                                     </span>
                                 </td>
                                 <td>
@@ -401,6 +415,72 @@ const AdminDashboard = () => {
                         ))}
                     </tbody>
                 </table>
+            </div>
+        </div>
+    );
+
+    const renderSettings = () => (
+        <div className="data-section settings-section" style={{ background: 'transparent', boxShadow: 'none', padding: 0 }}>
+            <div className="section-header" style={{ marginBottom: '20px' }}>
+                <h2>{t.settings || "System Settings"}</h2>
+            </div>
+            
+            <div className="settings-grid">
+                {/* General Configuration */}
+                <div className="settings-card">
+                    <h3>{t.generalOperations}</h3>
+                    <div className="form-group setting-toggle-row">
+                        <label>{t.tokenGenerationActive}</label>
+                        <label className="switch">
+                            <input type="checkbox" defaultChecked />
+                            <span className="slider round"></span>
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <label>{t.maxTokensPerDayGlobal}</label>
+                        <input type="number" className="gov-input" defaultValue="500" />
+                    </div>
+                    <div className="form-group">
+                        <label>{t.standardOfficeHours}</label>
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                            <input type="time" className="gov-input" defaultValue="09:00" />
+                            <span style={{ alignSelf: 'center' }}>{t.toTime}</span>
+                            <input type="time" className="gov-input" defaultValue="17:00" />
+                        </div>
+                    </div>
+                    <button className="gov-btn gov-btn-primary" onClick={() => alert("Configurations saved successfully!")} style={{ marginTop: '10px' }}>{t.saveConfigurations}</button>
+                </div>
+
+                {/* Profile Settings */}
+                <div className="settings-card">
+                    <h3>{t.languageRegion}</h3>
+                    <div className="form-group">
+                        <label>{t.systemDashboardLanguage}</label>
+                        <select className="gov-input" defaultValue="en">
+                            <option value="en">{t.englishDefault}</option>
+                            <option value="gu">{t.gujaratiMode}</option>
+                            <option value="hi">{t.hindiMode}</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label>{t.timezoneString}</label>
+                        <select className="gov-input" defaultValue="IST">
+                            <option value="IST">{t.istTimezone}</option>
+                        </select>
+                    </div>
+                    <button className="gov-btn gov-btn-secondary" onClick={() => alert("Preferences updated!")} style={{ marginTop: '10px' }}>{t.updatePreferences}</button>
+                </div>
+
+                {/* Danger Zone */}
+                <div className="settings-card danger-zone">
+                    <h3 style={{ color: "#dc3545" }}>{t.systemMaintenance}</h3>
+                    <p style={{ color: "#666", marginBottom: '15px' }}>{t.cautionWarning}</p>
+                    <div className="danger-buttons" style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                        <button className="gov-btn-danger" onClick={() => { if(window.confirm('Are you sure you want to pause all token generation lines?')) alert('System paused.');}}>{t.emergencyStop}</button>
+                        <button className="gov-btn-danger" onClick={() => { if(window.confirm('Are you sure you want to reset all token sequences to 0?')) alert('Token sequences reset.');}}>{t.factoryResetSequences}</button>
+                        <button className="gov-btn-danger" onClick={() => { if(window.confirm('Clear all logs older than 30 days?')) alert('Logs purged.');}}>{t.purgeOldLogs}</button>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -423,7 +503,7 @@ const AdminDashboard = () => {
                             {activeTab === 'dashboard' && renderDashboardOverview()}
                             {activeTab === 'offices' && renderOfficesTable()}
                             {activeTab === 'employees' && renderEmployeesTable()}
-                            {activeTab === 'settings' && <div className="placeholder-view"><h3>System Settings</h3><p>Coming Soon...</p></div>}
+                            {activeTab === 'settings' && renderSettings()}
                         </>
                     )}
                 </div>

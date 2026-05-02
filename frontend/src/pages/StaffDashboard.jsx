@@ -1,23 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import config from "../config";
 import { useLanguage } from "../context/LanguageContext";
+import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { QrReader } from "react-qr-reader";
 import "./StaffDashboard.css";
 
 const StaffDashboard = () => {
   const { t } = useLanguage();
+  const { user } = useContext(AuthContext);
   const [selectedToken, setSelectedToken] = useState(null);
   const [tokenQueue, setTokenQueue] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filterDate, setFilterDate] = useState(new Date().toISOString().split('T')[0]);
+  const [scannerOpen, setScannerOpen] = useState(false);
+  const [manualHash, setManualHash] = useState("");
 
   // Fetch pending tokens
   const fetchQueue = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${config.API_URL}tokens/`);
-      // Filter for active tokens (WAITING or SERVING)
-      const activeTokens = response.data.filter(t => ['WAITING', 'SERVING'].includes(t.status));
+      const response = await axios.get(`${config.API_URL}tokens/?booking_date=${filterDate}`);
+      // Filter for active tokens and completed/cancelled tokens for the day
+      const activeTokens = response.data.filter(t => ['WAITING', 'VERIFIED', 'SERVING', 'COMPLETED', 'CANCELLED'].includes(t.status));
       setTokenQueue(activeTokens);
       setError(null);
     } catch (err) {
@@ -33,7 +40,7 @@ const StaffDashboard = () => {
     // Poll every 30 seconds
     const interval = setInterval(fetchQueue, 30000);
     return () => clearInterval(interval);
-  }, []);
+  }, [filterDate]);
 
   const handleTokenClick = (token) => {
     setSelectedToken(token);
@@ -56,25 +63,54 @@ const StaffDashboard = () => {
     }
   };
 
+  const verifyToken = async (tokenHash) => {
+    if (!tokenHash) {
+       alert("Please enter a valid token hash.");
+       return;
+    }
+    try {
+      let cleanHash = tokenHash;
+      if (tokenHash.includes('/verify-token/')) {
+         cleanHash = tokenHash.split('/').pop();
+      }
+      const response = await axios.post(`${config.API_URL}verify-token/`, { token_hash: cleanHash });
+      fetchQueue();
+      setManualHash("");
+      if (scannerOpen) setScannerOpen(false);
+      
+      alert(`Token ${response.data.token_number} verified successfully!`);
+    } catch (err) {
+      console.error("Error verifying token:", err);
+      alert("Verification failed: " + (err.response?.data?.error || err.message));
+    }
+  };
+
   const getServingToken = () => {
     return tokenQueue.find(t => t.status === 'SERVING');
   };
 
   const getNextToken = () => {
     // Assuming sorted by id or created_at implicitly or explicitly
-    // The backend default order is usually by id (creation time)
+    const verified = tokenQueue.filter(t => t.status === 'VERIFIED');
+    if (verified.length > 0) return verified[0];
     return tokenQueue.filter(t => t.status === 'WAITING')[0];
   };
 
   const currentToken = getServingToken() || getNextToken();
+
+  const districtName = user?.district_name || 'Your';
 
   return (
     <div className="staff-dashboard">
       <div className="container">
 
         <header className="page-header">
-          <h2>{t.staffDashboard}</h2>
-          <p>{t.tokenSystem}</p>
+          <h2>Welcome {districtName} Staff</h2>
+          <p>Showing Tokens for: {districtName} District</p>
+          <div className="date-filter">
+             <label htmlFor="bookingDate">Date: </label>
+             <input type="date" id="bookingDate" value={filterDate} onChange={e => setFilterDate(e.target.value)} />
+          </div>
         </header>
 
         {loading && <p>{t.loadingQueue}</p>}
@@ -91,8 +127,8 @@ const StaffDashboard = () => {
               </div>
 
               <div className="gov-card">
-                <h3>{t.totalPending}</h3>
-                <p className="token-number">{tokenQueue.filter(t => t.status === 'WAITING').length}</p>
+                <h3>{t.pendingVerified}</h3>
+                <p className="token-number">{tokenQueue.filter(t => t.status === 'WAITING' || t.status === 'VERIFIED').length}</p>
               </div>
 
               <div className="gov-card">
@@ -107,10 +143,43 @@ const StaffDashboard = () => {
                 <div className="card-header">
                   <h3>{t.actionPanel}</h3>
                 </div>
+                <div className="verification-section" style={{ marginBottom: '20px', padding: '15px', background: '#f8fafc', borderRadius: '8px' }}>
+                  <h4>{t.secureVerification}</h4>
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                     <input 
+                       type="text" 
+                       placeholder={t.enterHashManually} 
+                       value={manualHash}
+                       onChange={(e) => setManualHash(e.target.value)}
+                       style={{ flex: 1, padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+                     />
+                     <button className="gov-btn gov-btn-primary" onClick={() => verifyToken(manualHash)}>{t.verifyBtnTxt}</button>
+                  </div>
+                  <div style={{ marginTop: '10px', textAlign: 'center', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                     <button className="gov-btn gov-btn-secondary" onClick={() => setScannerOpen(!scannerOpen)}>
+                       {scannerOpen ? t.closeCamera : t.scanQrCode}
+                     </button>
+                     <Link to="/verify-token" className="gov-btn gov-btn-secondary" style={{textDecoration: 'none'}}>Advanced Verification</Link>
+                  </div>
+                  {scannerOpen && (
+                     <div style={{ marginTop: '15px', border: '2px dashed #cbd5e1', borderRadius: '8px', overflow: 'hidden' }}>
+                       <QrReader
+                          onResult={(result, error) => {
+                            if (result) {
+                               verifyToken(result?.text);
+                            }
+                          }}
+                          style={{ width: '100%' }}
+                       />
+                     </div>
+                  )}
+                </div>
+
                 <div className="action-buttons">
+                  <h4 style={{marginBottom: "10px", fontSize: "0.9rem", color: "#666"}}>{t.queueActions}</h4>
                   {currentToken ? (
                     <>
-                      {currentToken.status === 'WAITING' && (
+                      {currentToken.status === 'VERIFIED' && (
                         <button className="gov-btn gov-btn-primary large-btn" onClick={() => updateTokenStatus(currentToken.id, 'SERVING')}>{t.callNextBtn}</button>
                       )}
                       {currentToken.status === 'SERVING' && (
@@ -172,8 +241,28 @@ const StaffDashboard = () => {
                 </div>
                 <div className="detail-row">
                   <span className="label">{t.statusLabel}</span>
-                  <span className={`value status-badge`}>{selectedToken.status}</span>
+                  <span className={`value status-badge`}>
+                    {selectedToken.status === 'VERIFIED' ? '✔ Verified' : selectedToken.status}
+                  </span>
                 </div>
+                <div className="detail-row" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+                  <span className="label">Token Hash (Blockchain)</span>
+                  <span className="value" style={{ wordBreak: 'break-all', fontSize: '0.85rem', color: '#666', marginTop: '5px', textAlign: 'left' }}>
+                    {selectedToken.token_hash || 'Not available'}
+                  </span>
+                </div>
+                {selectedToken.status === 'VERIFIED' && (
+                  <>
+                  <div className="detail-row">
+                    <span className="label">{t.verifiedBy}</span>
+                    <span className="value">{selectedToken.verified_by_name || 'Staff'}</span>
+                  </div>
+                  <div className="detail-row">
+                    <span className="label">{t.verifiedTime}</span>
+                    <span className="value">{selectedToken.verified_at ? new Date(selectedToken.verified_at).toLocaleTimeString() : 'N/A'}</span>
+                  </div>
+                  </>
+                )}
                 <div className="detail-row">
                   <span className="label">{t.createdAtLabel}</span>
                   <span className="value">{new Date(selectedToken.created_at).toLocaleString()}</span>
@@ -181,7 +270,7 @@ const StaffDashboard = () => {
               </div>
               <div className="modal-footer">
                 <button className="gov-btn gov-btn-secondary" onClick={closeModal}>{t.close}</button>
-                {selectedToken.status === 'WAITING' && (
+                {selectedToken.status === 'VERIFIED' && (
                   <button className="gov-btn gov-btn-primary" onClick={() => updateTokenStatus(selectedToken.id, 'SERVING')}>{t.startServingBtn}</button>
                 )}
                 {selectedToken.status === 'SERVING' && (
@@ -199,6 +288,18 @@ const StaffDashboard = () => {
         .active-serving {
             background-color: #dcfce7 !important;
             border-left: 4px solid #16a34a;
+        }
+        .date-filter {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+        .date-filter input {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
         .dashboard-content {
             display: grid;
@@ -244,6 +345,7 @@ const StaffDashboard = () => {
         }
         .status-serving { background: #dcfce7; color: #166534; }
         .status-waiting { background: #fef9c3; color: #854d0e; }
+        .status-verified { background: #dbeafe; color: #1e40af; }
 
         /* Modal Styles */
         .modal-overlay {

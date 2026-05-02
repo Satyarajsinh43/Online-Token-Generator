@@ -35,7 +35,12 @@ def generate_token_receipt(token_obj):
     c.setFont("Helvetica-Bold", 14)
     c.drawCentredString(width / 2, y_pos, f"Status: {token_obj.status}")
     
-    y_pos -= 0.8 * inch
+    if token_obj.slot_time:
+        y_pos -= 0.4 * inch
+        c.setFont("Helvetica-Bold", 14)
+        c.drawCentredString(width / 2, y_pos, f"Reporting Time Slot: {token_obj.slot_time.strftime('%I:%M %p')}")
+
+    y_pos -= 0.6 * inch
     
     # Info Table-like structure
     c.setFont("Helvetica", 12)
@@ -45,8 +50,9 @@ def generate_token_receipt(token_obj):
     info_items = [
         ("Office:", token_obj.office.office_name),
         ("Service:", token_obj.service.name if token_obj.service else "N/A"),
-        ("Date:", token_obj.created_at.strftime("%Y-%m-%d %I:%M %p")),
+        ("Booking Date:", token_obj.booking_date.strftime("%d-%m-%Y") if token_obj.booking_date else "N/A"),
         ("Customer Name:", token_obj.customer_name),
+        ("Generated:", token_obj.created_at.strftime("%Y-%m-%d %I:%M %p")),
         ("District:", token_obj.district.name if token_obj.district else "N/A"),
         ("Taluka:", token_obj.taluka.name if token_obj.taluka else "N/A"),
     ]

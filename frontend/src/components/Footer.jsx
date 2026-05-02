@@ -29,8 +29,8 @@ const Footer = () => {
                     <div>
                         <h4>{t.otherSites}</h4>
                         <ul>
-                            <li>{t.indiaPortal}</li>
-                            <li>{t.statePortal}</li>
+                            <li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>{t.indiaPortal}</a></li>
+                            <li><a href="https://gujaratindia.gov.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>{t.statePortal}</a></li>
                         </ul>
                     </div>
                 </div>

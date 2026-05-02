@@ -13,6 +13,22 @@ const Navbar = () => {
   // Helper to check active state
   const isActive = (path) => location.pathname === path ? "active" : "";
 
+  const increaseFontSize = () => {
+    const html = document.documentElement;
+    const currentSize = parseFloat(window.getComputedStyle(html).fontSize) || 16;
+    if (currentSize < 24) html.style.fontSize = `${currentSize + 2}px`;
+  };
+
+  const decreaseFontSize = () => {
+    const html = document.documentElement;
+    const currentSize = parseFloat(window.getComputedStyle(html).fontSize) || 16;
+    if (currentSize > 12) html.style.fontSize = `${currentSize - 2}px`;
+  };
+  
+  const resetFontSize = () => {
+    document.documentElement.style.fontSize = '';
+  };
+
   const handleLogout = () => {
     logoutUser();
     navigate('/');
@@ -46,7 +62,15 @@ const Navbar = () => {
               हिंदी
             </span>
             <span style={{ margin: '0 5px' }}>|</span>
-            | <span>{t.skipMain}</span> | <span>{t.screenReader}</span> | <span>A+ A-</span>
+            <a href="#main-content" style={{ textDecoration: 'none', color: 'inherit' }}>{t.skipMain}</a> 
+            <span style={{ margin: '0 5px' }}>|</span>
+            <Link to="/accessibility-statement" style={{ textDecoration: 'none', color: 'inherit' }}>{t.screenReader}</Link> 
+            <span style={{ margin: '0 5px' }}>|</span>
+            <span style={{ display: 'inline-flex', gap: '8px' }}>
+              <button onClick={increaseFontSize} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 'inherit', color: 'inherit', padding: 0, fontWeight: 'bold' }} title="Increase Font Size">A+</button>
+              <button onClick={resetFontSize} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 'inherit', color: 'inherit', padding: 0, fontWeight: 'bold' }} title="Reset Font Size">A</button>
+              <button onClick={decreaseFontSize} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 'inherit', color: 'inherit', padding: 0, fontWeight: 'bold' }} title="Decrease Font Size">A-</button>
+            </span>
           </div>
         </div>
       </div>
@@ -71,9 +95,14 @@ const Navbar = () => {
             <Link to="/" className={isActive("/")}>{t.navHome}</Link>
             <Link to="/book-token" className={isActive("/book-token")}>{t.bookToken || "Book Token"}</Link>
             <Link to="/token-status" className={isActive("/token-status")}>{t.tokenStatus || "Token Status"}</Link>
+            <Link to="/find-offices" className={isActive("/find-offices")}>{t.findOfficesTitle || "Find Offices 📍"}</Link>
             <Link to="/citizen-dashboard" className={isActive("/citizen-dashboard")}>{t.navCitizen}</Link>
-            <Link to="/staff-dashboard" className={isActive("/staff-dashboard")}>{t.navStaff}</Link>
-            <Link to="/admin-dashboard" className={isActive("/admin-dashboard")}>{t.navAdmin}</Link>
+            {(user?.role === 'EMPLOYEE' || user?.role === 'OFFICEADMIN' || user?.role === 'SUPERADMIN') && (
+              <Link to="/staff-dashboard" className={isActive("/staff-dashboard")}>{t.navStaff}</Link>
+            )}
+            {(user?.role === 'OFFICEADMIN' || user?.role === 'SUPERADMIN') && (
+              <Link to="/admin-dashboard" className={isActive("/admin-dashboard")}>{t.navAdmin}</Link>
+            )}
             {user ? (
               <button onClick={handleLogout} className="btn-nav login-btn" style={{ border: 'none', cursor: 'pointer' }}>Logout</button>
             ) : (

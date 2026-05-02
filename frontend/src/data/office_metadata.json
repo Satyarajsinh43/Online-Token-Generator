@@ -3,235 +3,324 @@
     "default": {
       "address": "Government Office Complex, Main Road",
       "contact": "Helpline: 1077",
-      "hours": "10:30 AM - 06:10 PM (Closed on 2nd & 4th Sat)"
+      "hours": "10:30 AM - 06:10 PM (Closed on 2nd & 4th Sat)",
+      "lat": 23.2156,
+      "lng": 72.6386
     },
     "Sachivalaya": {
       "address": "Block No. 1, New Sachivalaya, Gandhinagar, Gujarat 382010",
       "contact": "079-23250000",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.2156,
+      "lng": 72.6382
     },
-    
     "RTO Ahmedabad (GJ-01)": {
       "address": "Near Subhash Bridge, Sabarmati, Ahmedabad, Gujarat 380027",
       "contact": "079-27559696",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.0225,
+      "lng": 72.58019999999999
     },
     "RTO Ahmedabad East (GJ-27)": {
       "address": "Vastral Road, Near RAF Camp, Vastral, Ahmedabad, Gujarat 382418",
       "contact": "079-22973333",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.0225,
+      "lng": 72.57469999999999
     },
     "ARTO Bavla (GJ-38)": {
       "address": "Near APMC Market, Bavla, Gujarat 382220",
       "contact": "02714-232100",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.8333,
+      "lng": 72.37079999999999
     },
     "RTO Mehsana (GJ-02)": {
       "address": "Near Palavasna Circle, Highway Road, Mehsana, Gujarat 384003",
       "contact": "02762-252222",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.588,
+      "lng": 72.3762
     },
     "RTO Rajkot (GJ-03)": {
       "address": "Near Marketing Yard, Rajkot, Gujarat 360003",
       "contact": "0281-2453535",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.3039,
+      "lng": 70.8108
     },
     "RTO Bhavnagar (GJ-04)": {
       "address": "Near Press Quarters, Bhavnagar, Gujarat 364001",
       "contact": "0278-2426262",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.7645,
+      "lng": 72.1542
     },
     "RTO Surat (GJ-05)": {
       "address": "Majura Gate, Ring Road, Surat, Gujarat 395001",
       "contact": "0261-2464735",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.1702,
+      "lng": 72.8392
     },
     "RTO Vadodara (GJ-06)": {
       "address": "Darjipura, Near Golden Bridge, Vadodara, Gujarat 390022",
       "contact": "0265-2422240",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.3072,
+      "lng": 73.1866
     },
     "RTO Kheda (Nadiad) (GJ-07)": {
       "address": "Kheda-Nadiad Highway, Nadiad, Gujarat 387001",
       "contact": "0268-2567080",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.6916,
+      "lng": 72.86489999999999
     },
     "RTO Banaskantha (Palanpur) (GJ-08)": {
       "address": "Abu Highway, Near Aroma Circle, Palanpur, Gujarat 385001",
       "contact": "02742-252627",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 24.1724,
+      "lng": 72.4426
     },
     "RTO Sabarkantha (Himmatnagar) (GJ-09)": {
       "address": "Motipura, Himmatnagar, Gujarat 383001",
       "contact": "02772-241101",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.5979,
+      "lng": 72.9769
     },
     "RTO Jamnagar (GJ-10)": {
       "address": "Lal Bungalow Compound, Jamnagar, Gujarat 361001",
       "contact": "0288-2550262",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.4707,
+      "lng": 70.0668
     },
     "RTO Junagadh (GJ-11)": {
       "address": "Near Majewadi Gate, Junagadh, Gujarat 362001",
       "contact": "0285-2630980",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.5222,
+      "lng": 70.464
     },
     "RTO Kutch (Bhuj) (GJ-12)": {
       "address": "RTO Relocation Site, Bhuj-Mirzapar Road, Bhuj, Gujarat 370001",
       "contact": "02832-250004",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.242,
+      "lng": 69.6702
     },
     "ARTO Gandhidham (GJ-12)": {
       "address": "Tagore Road, Sector 8, Gandhidham, Gujarat 370201",
       "contact": "02836-220022",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.0768,
+      "lng": 70.1387
     },
     "RTO Surendranagar (GJ-13)": {
       "address": "Ratanpar, Surendranagar, Gujarat 363020",
       "contact": "02752-224422",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.7231,
+      "lng": 71.6424
     },
     "RTO Amreli (GJ-14)": {
       "address": "Lathi Road, Amreli, Gujarat 365601",
       "contact": "02792-223456",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.6015,
+      "lng": 71.2224
     },
     "RTO Valsad (GJ-15)": {
       "address": "Halar Road, Valsad, Gujarat 396001",
       "contact": "02632-244243",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 20.5992,
+      "lng": 72.93990000000001
     },
     "RTO Bharuch (GJ-16)": {
       "address": "Nandelav Road, Bharuch, Gujarat 392001",
       "contact": "02642-261234",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.7051,
+      "lng": 73.0001
     },
     "RTO Panchmahal (Godhra) (GJ-17)": {
       "address": "Lunawada Road, Godhra, Gujarat 389001",
       "contact": "02672-243232",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.7788,
+      "lng": 73.6144
     },
     "RTO Gandhinagar (GJ-18)": {
       "address": "Sector 13, Gandhinagar, Gujarat 382016",
       "contact": "079-23220444",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.2156,
+      "lng": 72.6429
     },
     "RTO Bardoli (GJ-19)": {
       "address": "Bardoli-Surat Road, Bardoli, Gujarat 394601",
       "contact": "02622-222233",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.1702,
+      "lng": 72.83720000000001
     },
     "RTO Dahod (GJ-20)": {
       "address": "Godhra Road, Dahod, Gujarat 389151",
       "contact": "02673-244555",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.7788,
+      "lng": 73.6214
     },
     "RTO Navsari (GJ-21)": {
       "address": "Near Grid Char Rasta, National Highway 8, Navsari, Gujarat 396445",
       "contact": "02637-234234",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 20.9467,
+      "lng": 72.9603
     },
     "RTO Narmada (Rajpipla) (GJ-22)": {
       "address": "Vadiya Palace Road, Rajpipla, Gujarat 393145",
       "contact": "02640-222999",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.8659,
+      "lng": 73.50859999999999
     },
     "RTO Anand (GJ-23)": {
       "address": "Ganesh Chokdi, Anand-Sojitra Road, Anand, Gujarat 388001",
       "contact": "02692-264422",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.5645,
+      "lng": 72.9309
     },
     "RTO Patan (GJ-24)": {
       "address": "Near University, Patan, Gujarat 384265",
       "contact": "02766-224466",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.8493,
+      "lng": 72.11989999999999
     },
     "RTO Porbandar (GJ-25)": {
       "address": "Airport Road, Porbandar, Gujarat 360575",
       "contact": "0286-2244455",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.6417,
+      "lng": 69.6339
     },
     "RTO Vyara (Tapi) (GJ-26)": {
       "address": "Songadh Road, Vyara, Gujarat 394650",
       "contact": "02626-223344",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 21.1163,
+      "lng": 73.3945
     },
     "RTO Dang (Ahwa) (GJ-30)": {
       "address": "Sunset Point Road, Ahwa, Gujarat 394710",
       "contact": "02631-220202",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 20.7578,
+      "lng": 73.6921
     },
     "RTO Aravalli (Modasa) (GJ-31)": {
       "address": "Shamlaji Road, Modasa, Gujarat 383315",
       "contact": "02774-245566",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.4682,
+      "lng": 73.31219999999999
     },
     "RTO Gir Somnath (Veraval) (GJ-32)": {
       "address": "Bypass Road, Veraval, Gujarat 362266",
       "contact": "02876-245050",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 20.906,
+      "lng": 70.37360000000001
     },
     "RTO Botad (GJ-33)": {
       "address": "Bhavnagar-Rajkot Highway, Botad, Gujarat 364710",
       "contact": "02849-252525",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.3039,
+      "lng": 70.8065
     },
     "RTO Chhota Udepur (GJ-34)": {
       "address": "Station Road, Chhota Udepur, Gujarat 391165",
       "contact": "02669-232323",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.3023,
+      "lng": 74.0108
     },
     "RTO Mahisagar (Lunawada) (GJ-35)": {
       "address": "Godhra-Lunawada Highway, Lunawada, Gujarat 389230",
       "contact": "02674-250250",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.7788,
+      "lng": 73.6191
     },
     "RTO Morbi (GJ-36)": {
       "address": "Vavdi Road, Near Marketing Yard, Morbi, Gujarat 363641",
       "contact": "02822-243300",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.812,
+      "lng": 70.835
     },
     "RTO Devbhoomi Dwarka (GJ-37)": {
       "address": "Khambhalia-Jamnagar Highway, Khambhalia, Gujarat 361305",
       "contact": "02833-234500",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 22.4707,
+      "lng": 70.0579
     },
-
     "Civil Hospital": {
       "address": "Asarwa, Ahmedabad, Gujarat 380016",
       "contact": "079-22683721",
-      "hours": "24x7 Emergency"
+      "hours": "24x7 Emergency",
+      "lat": 23.0225,
+      "lng": 72.57209999999999
     },
-    
     "District Collector Office": {
       "address": "District Collectorate, Ashram Road, Ahmedabad, Gujarat 380027",
       "contact": "079-27551681",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.0225,
+      "lng": 72.5807
     },
     "Collector Office": {
       "address": "Collector Office Compound, District HQ",
       "contact": "1077 (Disaster Helpline)",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.2156,
+      "lng": 72.6431
     },
     "Mamlatdar Office": {
       "address": "Seva Sadan, Taluka Headquarters",
       "contact": "Contact Local Helpdesk",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.2156,
+      "lng": 72.6465
     },
     "Mamlatdar Office (City)": {
       "address": "Old High Court Building, Near Income Tax, Ahmedabad",
       "contact": "079-2754xxxx",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.0225,
+      "lng": 72.57889999999999
     },
     "Taluka Panchayat": {
       "address": "Taluka Panchayat Bhavan, Taluka HQ",
       "contact": "Check Local Directory",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.2156,
+      "lng": 72.6387
     },
     "District Panchayat": {
       "address": "District Panchayat Bhavan, District HQ",
       "contact": "Check Local Directory",
-      "hours": "10:30 AM - 06:10 PM"
+      "hours": "10:30 AM - 06:10 PM",
+      "lat": 23.2156,
+      "lng": 72.6422
     }
   }
 }

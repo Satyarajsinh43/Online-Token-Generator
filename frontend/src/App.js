@@ -22,6 +22,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BackendTest from "./components/BackendTest";
 import VerifyToken from "./pages/VerifyToken";
+import RoleRedirect from "./pages/RoleRedirect";
 
 function App() {
   return (
@@ -29,19 +30,20 @@ function App() {
       <LanguageProvider>
         <BrowserRouter>
           <Navbar />
-          <div style={{ minHeight: '80vh' }}>
+          <div id="main-content" style={{ minHeight: '80vh' }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/register" element={<Register />} />
               <Route path="/token-receipt" element={<TokenReceipt />} />
+              <Route path="/role-redirect" element={<RoleRedirect />} />
 
               {/* Protected Routes */}
               <Route
                 path="/citizen-dashboard"
                 element={
-                  <ProtectedRoute allowedRoles={['CUSTOMER', 'SUPERADMIN']}>
+                  <ProtectedRoute allowedRoles={['CUSTOMER', 'SUPERADMIN', 'OFFICEADMIN']}>
                     <CitizenDashboard />
                   </ProtectedRoute>
                 }
@@ -63,7 +65,14 @@ function App() {
                 }
               />
 
-              <Route path="/book-token" element={<BookToken />} />
+              <Route
+                path="/book-token"
+                element={
+                  <ProtectedRoute>
+                    <BookToken />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/token-status" element={<TokenStatus />} />
               <Route path="/blockchain-proof" element={<BlockchainProof />} />
               <Route path="/verify-token/:hash?" element={<VerifyToken />} />

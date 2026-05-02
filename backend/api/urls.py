@@ -8,8 +8,9 @@ from .views import (
     OfficeViewSet, TokenViewSet, EmployeeViewSet, 
     RegisterView, DistrictViewSet, TalukaViewSet, VillageViewSet,
     MyTokenObtainPairView, ServiceViewSet,
-    BookTokenView, TokenReceiptView, VerifyTokenView,
-    SendOTPView, VerifyOTPView, CreateEmployeeAPIView
+    BookTokenView, TokenReceiptView, VerifyTokenView, verify_token,
+    SendOTPView, VerifyOTPView, CreateEmployeeAPIView, clerk_sync_user,
+    AvailableSlotsView
 )
 
 router = DefaultRouter()
@@ -29,7 +30,10 @@ urlpatterns = [
     path('book-token/', BookTokenView.as_view(), name='book_token'),
     path('token/receipt/<int:pk>/', TokenReceiptView.as_view(), name='token_receipt'),
     path('verify-token/<str:token_hash>/', VerifyTokenView.as_view(), name='verify_token'),
+    path('verify-token/', verify_token, name='staff_verify_token'),
     path('send-otp/', SendOTPView.as_view(), name='send_otp'),
     path('verify-otp/', VerifyOTPView.as_view(), name='verify_otp'),
     path('create-staff/', CreateEmployeeAPIView.as_view(), name='create_staff'),
+    path('clerk-sync-user/', clerk_sync_user, name='clerk_sync_user'),
+    path('available-slots/', AvailableSlotsView.as_view(), name='available_slots'),
 ]

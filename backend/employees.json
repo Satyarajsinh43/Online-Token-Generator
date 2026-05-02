@@ -1,0 +1,32 @@
+[
+  {
+    "user": "staff@gujarat.gov.in",
+    "office": "Gram Panchayat Shinapar",
+    "designation": "Staff Interface Tester"
+  },
+  {
+    "user": "testuser@gujarat.gov.in",
+    "office": "Gram Panchayat Shinapar",
+    "designation": "Clerk"
+  },
+  {
+    "user": "staff001@gujarat.gov.in",
+    "office": "City Civic Center Amreli",
+    "designation": "Clerk"
+  },
+  {
+    "user": "srathod314331@gmail.com",
+    "office": "Gram Panchayat Shinapar",
+    "designation": "Staff"
+  },
+  {
+    "user": "princepatel90540@gmail.com",
+    "office": "City Civic Center Bardoli",
+    "designation": "Clerk"
+  },
+  {
+    "user": "raiyaniprince7@gmail.com",
+    "office": "Gram Panchayat Veda",
+    "designation": "Gandhinagar Staff"
+  }
+]
