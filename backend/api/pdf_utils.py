@@ -19,9 +19,16 @@ def generate_token_receipt(token_obj):
     c.setFont("Helvetica-Bold", 16)
     
     # Header
-    c.drawString(1 * inch, height - 1 * inch, "Online Token System - Gujarat")
-    c.setFont("Helvetica", 10)
-    c.drawString(1 * inch, height - 1.25 * inch, "Government of Gujarat")
+    logo_path = r"c:\SEM4\Online Token Generator\frontend\public\gujarat_logo.png"
+    if os.path.exists(logo_path):
+        c.drawImage(logo_path, 1 * inch, height - 1.3 * inch, width=0.85 * inch, height=0.5 * inch)
+        c.drawString(2.0 * inch, height - 1 * inch, "Online Token System - Gujarat")
+        c.setFont("Helvetica", 10)
+        c.drawString(2.0 * inch, height - 1.25 * inch, "Government of Gujarat")
+    else:
+        c.drawString(1 * inch, height - 1 * inch, "Online Token System - Gujarat")
+        c.setFont("Helvetica", 10)
+        c.drawString(1 * inch, height - 1.25 * inch, "Government of Gujarat")
     
     c.line(1 * inch, height - 1.4 * inch, width - 1 * inch, height - 1.4 * inch)
     

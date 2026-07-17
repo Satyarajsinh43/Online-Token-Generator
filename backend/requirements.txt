@@ -1,0 +1,13 @@
+Django>=5.0
+djangorestframework
+django-cors-headers
+psycopg2-binary
+web3
+py-solc-x
+python-dotenv
+reportlab
+qrcode
+clerk-backend-api
+gunicorn
+whitenoise
+dj-database-url

@@ -210,6 +210,9 @@ const BookToken = () => {
         to_email: contact,
         to_name: name || "User",
         otp_code: generatedOtp,
+        logo_url: "https://web.archive.org/web/20210729091942im_/https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg",
+        logo: "https://web.archive.org/web/20210729091942im_/https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg",
+        website_logo: "https://web.archive.org/web/20210729091942im_/https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg",
       };
 
       try {
@@ -266,7 +269,11 @@ const BookToken = () => {
       office: data.office_name,
       date: data.booking_date,
       slot: data.slot_time,
-      qr_code_url: qrCodeUrl // Pass this URL to EmailJS
+      qr_code_url: qrCodeUrl,
+      qr_code: qrCodeUrl,
+      logo_url: "https://web.archive.org/web/20210729091942im_/https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg",
+      logo: "https://web.archive.org/web/20210729091942im_/https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg",
+      website_logo: "https://web.archive.org/web/20210729091942im_/https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg"
     };
 
     emailjs.send(

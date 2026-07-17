@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="logo-section">
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '15px', textDecoration: 'none' }}>
               <img
-                src="https://gandhinagarportal.com/wp-content/uploads/2012/05/government_gujarat_gandhinagar.jpg"
+                src="/gujarat_logo.png"
                 alt="Emblem"
                 className="gov-emblem"
               />

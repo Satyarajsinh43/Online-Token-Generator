@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kijqa80c=k!u63lls_2q45x==qdqomdt9d=l4v$frb4+dji&n4'
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kijqa80c=k!u63lls_2q45x==qdqomdt9d=l4v$frb4+dji&n4')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 AUTHENTICATION_BACKENDS = [
     'api.backends.EmailOrUsernameModelBackend',
@@ -49,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,18 +87,25 @@ WSGI_APPLICATION = 'token_generator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'token_generator_db',
-        'USER': 'token_user',
-        'PASSWORD': '3143',
-        'HOST': 'localhost',
-        'PORT': '5432',
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'token_generator_db',
+            'USER': 'token_user',
+            'PASSWORD': '3143',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'True') == 'True'
+CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000').split(',')
 
 
 # Password validation
@@ -130,6 +143,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -138,7 +153,7 @@ REST_FRAMEWORK = {
     )
 }
 
-CLERK_SECRET_KEY = 'sk_test_UVAb5mY7z6sgKHS0JEfRFnLu0pAyqAzdlVzbMACCOh'
+CLERK_SECRET_KEY = os.getenv('CLERK_SECRET_KEY', 'sk_test_UVAb5mY7z6sgKHS0JEfRFnLu0pAyqAzdlVzbMACCOh')
 
 from datetime import timedelta
 SIMPLE_JWT = {
