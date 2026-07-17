@@ -33,6 +33,7 @@ const Home = () => {
             <span className="blink-dot"></span>
             {t.latestUpdates}
           </span>
+          {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
           <marquee behavior="scroll" direction="left" onMouseOver={(e) => e.target.stop()} onMouseOut={(e) => e.target.start()}>
             {t.marqueeText}
           </marquee>

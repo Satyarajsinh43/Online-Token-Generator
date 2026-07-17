@@ -20,7 +20,6 @@ import FindOffices from "./pages/FindOffices";
 import { AuthProvider } from "./context/AuthContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import BackendTest from "./components/BackendTest";
 import VerifyToken from "./pages/VerifyToken";
 import RoleRedirect from "./pages/RoleRedirect";
 

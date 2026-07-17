@@ -20,10 +20,6 @@ const TokenReceipt = () => {
         );
     }
 
-    const handlePrint = () => {
-        window.print();
-    };
-
     return (
         <div className="receipt-page">
             <div className="receipt-card" ref={printRef}>

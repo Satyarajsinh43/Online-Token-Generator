@@ -19,9 +19,6 @@ const AdminDashboard = () => {
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Filter/Search State
-    const [searchTerm, setSearchTerm] = useState("");
-
     // Forms State
     const [showOfficeForm, setShowOfficeForm] = useState(false);
     const [newOffice, setNewOffice] = useState({ office_name: "", office_code: "", address: "", office_type: "URBAN" });
@@ -34,12 +31,8 @@ const AdminDashboard = () => {
         fetchInitialData();
     }, []);
 
-    const [debugInfo, setDebugInfo] = useState("No Debug Data");
-    const [pageError, setPageError] = useState(null);
-
     const fetchInitialData = async () => {
         setLoading(true);
-        setPageError(null);
 
         let debugLog = {};
 
@@ -61,7 +54,6 @@ const AdminDashboard = () => {
             }
         } catch (error) {
             console.error("Error fetching offices:", error);
-            setPageError("Error fetching offices: " + error.message);
             debugLog.officeError = error.message;
         }
 
@@ -89,7 +81,6 @@ const AdminDashboard = () => {
             debugLog.tokenError = error.message;
         }
 
-        setDebugInfo(JSON.stringify(debugLog, null, 2));
         setLoading(false);
     };
 
