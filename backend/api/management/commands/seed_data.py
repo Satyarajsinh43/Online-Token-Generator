@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
-from api.models import District, Taluka, Village, City, Office
+from api.models import District, Taluka, Village, Office
 
 class Command(BaseCommand):
-    help = 'Seeds the database with initial data for Gujarat districts, talukas, villages, and cities.'
+    help = 'Seeds the database with initial data for Gujarat districts, talukas, and villages.'
 
     def handle(self, *args, **kwargs):
         self.stdout.write('Seeding data...')
@@ -25,17 +25,20 @@ class Command(BaseCommand):
             
             # Create Cities (Urban)
             for city_name in data['cities']:
-                city, c_created = City.objects.get_or_create(name=city_name, district=district)
+                # Treat urban city center as a Taluka in our schema
+                city_taluka, c_created = Taluka.objects.get_or_create(name=city_name, district=district)
                 if c_created:
-                    # Create Urban Office
-                    Office.objects.get_or_create(
-                        office_name=f"{city_name} Civic Center",
-                        office_code=f"OFF-{city_name[:3].upper()}",
-                        district=district,
-                        city=city,
-                        office_type='URBAN',
-                        defaults={'address': f"Main Road, {city_name}"}
-                    )
+                    self.stdout.write(f'Created City Taluka: {city_name}')
+                
+                # Create Urban Office
+                Office.objects.get_or_create(
+                    office_name=f"{city_name} Civic Center",
+                    office_code=f"OFF-{city_name[:3].upper()}-{random_code()}",
+                    district=district,
+                    taluka=city_taluka,
+                    office_type='URBAN',
+                    defaults={'address': f"Main Road, {city_name}"}
+                )
 
             # Create Talukas (Rural)
             for taluka_name in data['talukas']:
