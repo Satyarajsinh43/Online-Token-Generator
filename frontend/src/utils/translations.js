@@ -283,7 +283,6 @@ export const translations = {
         tokenNotFound: "Token not found. Please check the number.",
         errorFetchingStatus: "Error fetching token status.",
         token: "Token",
-        officeName: "Office Name",
         time: "Time",
         customer: "Customer",
         currentlyAtCounter: "Currently at Counter",
@@ -351,7 +350,6 @@ export const translations = {
         sharingP1: "We do not sell, trade, or rent your personal identification information to others. We may share generic aggregated demographic information regarding visitors and users with our partners and trusted affiliates for government analysis purposes.",
         cookiesTitle: "Cookies",
         cookiesP1: "Our website may use \"cookies\" to enhance user experience. You may choose to set your web browser to refuse cookies or to alert you when cookies are being sent.",
-        digitalGujarat: "Digital Gujarat",
         
         // Staff Dashboard Updates
         secureVerification: "Secure Verification",
@@ -648,7 +646,6 @@ export const translations = {
         tokenNotFound: "ટોકન મળ્યું નથી. કૃપા કરીને નંબર તપાસો.",
         errorFetchingStatus: "ટોકન સ્થિતિ લાવવામાં ભૂલ.",
         token: "ટોકન",
-        officeName: "ઓફિસનું નામ",
         time: "સમય",
         customer: "ગ્રાહક",
         currentlyAtCounter: "હાલમાં કાઉન્ટર પર",
@@ -716,7 +713,6 @@ export const translations = {
         sharingP1: "અમે તમારી વ્યક્તિગત માહિતી અન્ય લોકોને વેચતા કે ભાડે આપતા નથી.",
         cookiesTitle: "કૂકીઝ",
         cookiesP1: "વપરાશકર્તા અનુભવ વધારવા માટે વેબસાઇટ કૂકીઝનો ઉપયોગ કરી શકે છે.",
-        digitalGujarat: "ડિજિટલ ગુજરાત",
         
         // Staff Dashboard Updates
         secureVerification: "સુરક્ષિત ચકાસણી",
@@ -1013,7 +1009,6 @@ export const translations = {
         tokenNotFound: "टोकन नहीं मिला। कृपया नंबर जांचें।",
         errorFetchingStatus: "टोकन स्थिति प्राप्त करने में त्रुटि।",
         token: "टोकन",
-        officeName: "कार्यालय का नाम",
         time: "समय",
         customer: "ग्राहक",
         currentlyAtCounter: "वर्तमान में काउंटर पर",
@@ -1081,7 +1076,6 @@ export const translations = {
         sharingP1: "हम आपकी व्यक्तिगत जानकारी दूसरों को नहीं बेचते या किराए पर नहीं देते हैं।",
         cookiesTitle: "कुकीज़",
         cookiesP1: "उपयोगकर्ता अनुभव को बढ़ाने के लिए हमारी वेबसाइट कुकीज़ का उपयोग कर सकती है।",
-        digitalGujarat: "डिजिटल गुजरात",
         
         // Staff Dashboard Updates
         secureVerification: "सुरक्षित सत्यापन",
