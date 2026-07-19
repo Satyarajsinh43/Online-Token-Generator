@@ -10,8 +10,8 @@ class Command(BaseCommand):
         self.stdout.write('Checking database status...')
         
         # If already fully seeded, skip to save time and prevent token deletion
-        if Office.objects.count() >= 1200:
-            self.stdout.write(self.style.SUCCESS('Database already has all offices seeded. Skipping seeding.'))
+        if Service.objects.count() >= 20:
+            self.stdout.write(self.style.SUCCESS('Database already has all services and offices seeded. Skipping seeding.'))
             return
 
         self.stdout.write('Clearing incomplete/sample location data...')
@@ -152,13 +152,31 @@ class Command(BaseCommand):
 
         # Seed services (Rural, Urban, RTO)
         services_data = [
+            # URBAN
             {"name": "Income Certificate", "office_type": "URBAN", "avg_time_minutes": 15},
             {"name": "Caste Certificate", "office_type": "URBAN", "avg_time_minutes": 15},
             {"name": "Domicile Certificate", "office_type": "URBAN", "avg_time_minutes": 20},
+            {"name": "Non-Creamylayer Certificate", "office_type": "URBAN", "avg_time_minutes": 20},
+            {"name": "Character Certificate", "office_type": "URBAN", "avg_time_minutes": 10},
+            {"name": "Property Tax Payment", "office_type": "URBAN", "avg_time_minutes": 10},
+            {"name": "Professional Tax Registration", "office_type": "URBAN", "avg_time_minutes": 25},
+            {"name": "Shop & Establishment License", "office_type": "URBAN", "avg_time_minutes": 30},
+            {"name": "Birth/Death Certificate", "office_type": "URBAN", "avg_time_minutes": 15},
+            {"name": "Marriage Registration", "office_type": "URBAN", "avg_time_minutes": 45},
+
+            # RURAL
             {"name": "Income Certificate", "office_type": "RURAL", "avg_time_minutes": 15},
-            {"name": "Caste Certificate", "office_type": "RURAL", "avg_time_minutes": 15},
-            {"name": "Driving License", "office_type": "RTO", "avg_time_minutes": 30},
+            {"name": "Caste Certificate", "office_type": "RURAL", "avg_time_minutes": 20},
+            {"name": "Non-Creamylayer Certificate", "office_type": "RURAL", "avg_time_minutes": 20},
+            {"name": "Domicile Certificate", "office_type": "RURAL", "avg_time_minutes": 15},
+            {"name": "Character Certificate", "office_type": "RURAL", "avg_time_minutes": 10},
+
+            # RTO
+            {"name": "Learner License", "office_type": "RTO", "avg_time_minutes": 30},
+            {"name": "Driving License Test", "office_type": "RTO", "avg_time_minutes": 60},
             {"name": "Vehicle Registration", "office_type": "RTO", "avg_time_minutes": 45},
+            {"name": "Fitness Certificate", "office_type": "RTO", "avg_time_minutes": 40},
+            {"name": "Transfer of Ownership", "office_type": "RTO", "avg_time_minutes": 30},
         ]
         
         for s_data in services_data:
