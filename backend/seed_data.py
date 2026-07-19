@@ -46,12 +46,11 @@ def seed():
         "Valsad": ["Dharampur", "Kaprada", "Pardi", "Umbergaon", "Valsad", "Vapi"]
     }
 
-    # Clear existing data to avoid duplication
-    print("Clearing existing location data...")
-    Office.objects.all().delete()
-    Village.objects.all().delete()
-    Taluka.objects.all().delete()
-    District.objects.all().delete()
+    if District.objects.count() > 0:
+        print("Database already has location data. Skipping seeding.")
+        return
+    
+    print("Populating location data...")
     
     # Data Structure: District -> { Taluka -> [Villages] }
     # We populate real data where found, otherwise leave empty or add generic logic later.
