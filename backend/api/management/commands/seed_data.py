@@ -60,6 +60,27 @@ class Command(BaseCommand):
                             defaults={'address': f"Village Square, {village.name}"}
                         )
 
+        # Seed Services
+        services_data = [
+            {"name": "Income Certificate", "office_type": "URBAN", "avg_time_minutes": 15},
+            {"name": "Caste Certificate", "office_type": "URBAN", "avg_time_minutes": 15},
+            {"name": "Domicile Certificate", "office_type": "URBAN", "avg_time_minutes": 20},
+            {"name": "Income Certificate", "office_type": "RURAL", "avg_time_minutes": 15},
+            {"name": "Caste Certificate", "office_type": "RURAL", "avg_time_minutes": 15},
+            {"name": "Driving License", "office_type": "RTO", "avg_time_minutes": 30},
+            {"name": "Vehicle Registration", "office_type": "RTO", "avg_time_minutes": 45},
+        ]
+        
+        from api.models import Service
+        for s_data in services_data:
+            srv, created = Service.objects.get_or_create(
+                name=s_data["name"],
+                office_type=s_data["office_type"],
+                defaults={"avg_time_minutes": s_data["avg_time_minutes"]}
+            )
+            if created:
+                self.stdout.write(f"Created Service: {srv.name} ({srv.office_type})")
+
         self.stdout.write(self.style.SUCCESS('Successfully seeded data.'))
 
 def random_code():

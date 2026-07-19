@@ -32,8 +32,7 @@ try:
     from api.models import District
     if District.objects.count() == 0:
         print("Auto-startup: Empty database detected. Seeding data...")
-        from seed_data import seed
-        seed()
+        call_command('seed_data', interactive=False)
         print("Auto-startup: Database seeded successfully.")
     else:
         print("Auto-startup: Database already populated. Skipping seed.")
