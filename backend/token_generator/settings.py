@@ -30,7 +30,13 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kijqa80c=k!u63lls_2q45x==q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,online-token-generator-backend.onrender.com,.onrender.com').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+ALLOWED_HOSTS.extend([
+    'online-token-generator-backend.onrender.com',
+    '.onrender.com',
+    'localhost',
+    '127.0.0.1'
+])
 
 AUTHENTICATION_BACKENDS = [
     'api.backends.EmailOrUsernameModelBackend',
