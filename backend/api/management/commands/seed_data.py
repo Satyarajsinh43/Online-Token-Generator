@@ -210,7 +210,7 @@ class Command(BaseCommand):
                     district=vil.taluka.district,
                     taluka=vil.taluka,
                     village=vil,
-                    defaults={"address": f"Panchayat Bhavan, {vil.name}"}
+                    address=f"Panchayat Bhavan, {vil.name}"
                 ))
                 
             self.stdout.write(f"Bulk creating {len(offices_to_create)} Gram Panchayat offices...")
