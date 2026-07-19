@@ -28,10 +28,10 @@ try:
     call_command('migrate', interactive=False)
     print("Auto-startup: Migrations completed.")
     
-    # Check if database has all villages seeded
-    from api.models import Village
-    if Village.objects.count() < 5000:
-        print("Auto-startup: Underpopulated villages list (< 5000 villages). Seeding full data...")
+    # Check if database has all offices seeded
+    from api.models import Office
+    if Office.objects.count() < 15000:
+        print("Auto-startup: Underpopulated offices list (< 15000 offices). Seeding full data...")
         call_command('seed_data', interactive=False)
         print("Auto-startup: Database seeded successfully.")
     else:

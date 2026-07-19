@@ -11,8 +11,8 @@ class Command(BaseCommand):
         self.stdout.write('Checking database status...')
         
         # If already fully seeded, skip to save time and prevent token deletion
-        if Village.objects.count() >= 5000:
-            self.stdout.write(self.style.SUCCESS('Database already has all villages and offices seeded. Skipping seeding.'))
+        if Office.objects.count() >= 15000:
+            self.stdout.write(self.style.SUCCESS('Database already has all offices and villages seeded. Skipping seeding.'))
             return
 
         self.stdout.write('Clearing incomplete/sample location data...')
