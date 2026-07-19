@@ -10,8 +10,8 @@ class Command(BaseCommand):
         self.stdout.write('Checking database status...')
         
         # If already fully seeded, skip to save time and prevent token deletion
-        if District.objects.count() >= 33:
-            self.stdout.write(self.style.SUCCESS('Database already has all 33 districts. Skipping seeding.'))
+        if Office.objects.count() >= 500:
+            self.stdout.write(self.style.SUCCESS('Database already has all offices seeded. Skipping seeding.'))
             return
 
         self.stdout.write('Clearing incomplete/sample location data...')
@@ -102,6 +102,16 @@ class Command(BaseCommand):
 
             for tal_name in talukas:
                 taluka, _ = Taluka.objects.get_or_create(name=tal_name, district=district)
+
+                # Always create a Mamlatdar Office for every Taluka (Urban/General)
+                Office.objects.get_or_create(
+                    office_name=f"Mamlatdar Office {tal_name}",
+                    office_code=f"MAM-{tal_name[:3].upper()}-{random_code()}",
+                    office_type="URBAN",
+                    district=district,
+                    taluka=taluka,
+                    defaults={"address": f"Taluka Seva Sadan, {tal_name}"}
+                )
 
                 # Identify if this Taluka matches an Urban City Center
                 is_city_center = "City" in tal_name or tal_name == dist_name or tal_name in ["Adajan", "Athwa", "Katargam", "Limbayat", "Udhna", "Varachha", "Rander"]
