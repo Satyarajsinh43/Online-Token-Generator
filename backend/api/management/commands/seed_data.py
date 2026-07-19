@@ -58,18 +58,11 @@ class Command(BaseCommand):
             "Valsad": ["Dharampur", "Kaprada", "Pardi", "Umbergaon", "Valsad", "Vapi"]
         }
 
-        # Specific RTO code mappings
-        rto_mapping = {
-            "Ahmedabad": "01", "Mehsana": "02", "Rajkot": "03", "Surat": "05",
-            "Vadodara": "06", "Nadiad": "07", "Kheda": "07", "Bhuj": "12",
-            "Kutch": "12", "Gandhinagar": "18", "Narmada": "22", "Tapi": "26"
-        }
-
         self.stdout.write("Seeding all 33 districts and 247 talukas...")
 
         for idx, (dist_name, talukas) in enumerate(gujarat_data.items()):
-            # Determine RTO code safely
-            rto_code = rto_mapping.get(dist_name, f"{idx+1:02d}")
+            # Always generate a unique RTO code sequentially using loop index
+            rto_code = f"{idx+1:02d}"
             code = f"GJ{rto_code}"
             
             district, _ = District.objects.get_or_create(
