@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import config from '../config';
 
 const BackendTest = () => {
     const [message, setMessage] = useState('Waiting for backend...');
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/offices/')
+        fetch(`${config.API_URL}offices/`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

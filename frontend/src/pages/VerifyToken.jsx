@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useLanguage } from '../context/LanguageContext';
+import config from '../config';
 import './VerifyToken.css';
 
 const VerifyToken = () => {
@@ -28,7 +29,7 @@ const VerifyToken = () => {
 
         try {
             // Replace with your actual backend URL or configured axios instance
-            const response = await axios.get(`http://localhost:8000/api/verify-token/${tokenHash}/`);
+            const response = await axios.get(`${config.API_URL}verify-token/${tokenHash}/`);
             setVerificationResult(response.data);
         } catch (err) {
             if (err.response && err.response.data) {
