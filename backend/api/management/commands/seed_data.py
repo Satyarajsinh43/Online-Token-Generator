@@ -10,7 +10,7 @@ class Command(BaseCommand):
         self.stdout.write('Checking database status...')
         
         # If already fully seeded, skip to save time and prevent token deletion
-        if Office.objects.count() >= 500:
+        if Office.objects.count() >= 1200:
             self.stdout.write(self.style.SUCCESS('Database already has all offices seeded. Skipping seeding.'))
             return
 

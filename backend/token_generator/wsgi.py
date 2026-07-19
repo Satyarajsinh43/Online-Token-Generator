@@ -30,8 +30,8 @@ try:
     
     # Check if database has all offices seeded
     from api.models import Office
-    if Office.objects.count() < 500:
-        print("Auto-startup: Underpopulated database detected (< 500 offices). Seeding full data...")
+    if Office.objects.count() < 1200:
+        print("Auto-startup: Underpopulated database detected (< 1200 offices). Seeding full data...")
         call_command('seed_data', interactive=False)
         print("Auto-startup: Database seeded successfully.")
     else:
