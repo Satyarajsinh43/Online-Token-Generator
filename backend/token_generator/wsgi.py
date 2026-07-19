@@ -28,14 +28,14 @@ try:
     call_command('migrate', interactive=False)
     print("Auto-startup: Migrations completed.")
     
-    # Check if database is empty to run seed data
+    # Check if database is underpopulated to run seed data
     from api.models import District
-    if District.objects.count() == 0:
-        print("Auto-startup: Empty database detected. Seeding data...")
+    if District.objects.count() < 33:
+        print("Auto-startup: Underpopulated database detected (< 33 districts). Seeding full data...")
         call_command('seed_data', interactive=False)
         print("Auto-startup: Database seeded successfully.")
     else:
-        print("Auto-startup: Database already populated. Skipping seed.")
+        print("Auto-startup: Database already fully seeded. Skipping seed.")
 except Exception as e:
     print(f"Auto-startup error: {e}")
 
