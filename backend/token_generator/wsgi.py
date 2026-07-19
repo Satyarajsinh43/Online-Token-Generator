@@ -8,9 +8,36 @@ https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
 """
 
 import os
-
+import sys
+from pathlib import Path
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'token_generator.settings')
+
+# Add backend directory to sys.path to safely import seed_data
+BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.append(str(BASE_DIR))
+
+# Automatically run migrations and seed data on startup
+try:
+    import django
+    django.setup()
+    from django.core.management import call_command
+    print("Auto-startup: Running migrations...")
+    call_command('migrate', interactive=False)
+    print("Auto-startup: Migrations completed.")
+    
+    # Check if database is empty to run seed data
+    from api.models import District
+    if District.objects.count() == 0:
+        print("Auto-startup: Empty database detected. Seeding data...")
+        from seed_data import seed
+        seed()
+        print("Auto-startup: Database seeded successfully.")
+    else:
+        print("Auto-startup: Database already populated. Skipping seed.")
+except Exception as e:
+    print(f"Auto-startup error: {e}")
 
 application = get_wsgi_application()
